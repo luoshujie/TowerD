@@ -17,10 +17,13 @@ namespace Script.Role.Data
         public int Energy;
         public int MaxEnergy;
 
-        public HeroData(int id, string roleName, AttackTargetEnum attackTargetEnum, int maxLife, int maxEnergy,
+        public float EnergyCoolTime;
+
+        public HeroData(int id, string roleName, AttackTargetEnum attackTargetEnum, int maxLife,float energyCoolTime, int maxEnergy,
             int attack, int defense, float attackDistance, float attackInterval, OccupationEnum occupation,
             StanceEnum stance)
         {
+            
             Alive = true;
             Id = id;
             RoleName = roleName;
@@ -29,6 +32,7 @@ namespace Script.Role.Data
             Life = maxLife;
             MaxEnergy = maxEnergy;
             Energy = 0;
+            EnergyCoolTime = MaxEnergy/energyCoolTime;
             Attack = attack;
             Defense = defense;
             AttackDistance = attackDistance;

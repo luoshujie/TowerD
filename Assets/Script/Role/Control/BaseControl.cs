@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Script.Role.Data;
+using Script.Role.Fsm;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class BaseControl : MonoBehaviour
+namespace Script.Role.Control
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class BaseControl : MonoBehaviour
     {
-        
-    }
+        public Animator anim;
+        public FsmSystem fsmSystem;
+        public BaseData data;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public abstract void Init();
+        public abstract void Hurt(int value);
+        public abstract void ChangeLife(int value);
+        public abstract void Die();
+        public abstract void Damage();
     }
 }

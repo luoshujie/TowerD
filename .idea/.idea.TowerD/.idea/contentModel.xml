@@ -26,10 +26,29 @@
         <e p="Script" t="Include">
           <e p="MainNodeMgr.cs" t="Include" />
           <e p="Role" t="Include">
+            <e p="Control" t="Include">
+              <e p="BaseControl.cs" t="Include" />
+              <e p="Hero" t="Include">
+                <e p="GunmenControl.cs" t="Include" />
+              </e>
+              <e p="HeroControl.cs" t="Include" />
+            </e>
             <e p="Data" t="Include">
               <e p="BaseData.cs" t="Include" />
               <e p="HeroData.cs" t="Include" />
               <e p="MonsterData.cs" t="Include" />
+            </e>
+            <e p="Fsm" t="Include">
+              <e p="FsmSystem.cs" t="Include" />
+              <e p="StateBase.cs" t="Include" />
+              <e p="StateID.cs" t="Include" />
+              <e p="Transition.cs" t="Include" />
+            </e>
+            <e p="Skill" t="Include">
+              <e p="Skill" t="Include">
+                <e p="FatalShotSkill.cs" t="Include" />
+              </e>
+              <e p="SkillInterface.cs" t="Include" />
             </e>
           </e>
         </e>
