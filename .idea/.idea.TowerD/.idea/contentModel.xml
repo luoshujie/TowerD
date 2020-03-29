@@ -26,8 +26,12 @@
         <e p="Script" t="Include">
           <e p="Item" t="Include">
             <e p="HeroCardItem.cs" t="Include" />
+            <e p="HeroItem.cs" t="Include" />
           </e>
           <e p="MainNodeMgr.cs" t="Include" />
+          <e p="Manager" t="Include">
+            <e p="WindowMgr.cs" t="Include" />
+          </e>
           <e p="PlaceContent.cs" t="Include" />
           <e p="PlacePlatform.cs" t="Include" />
           <e p="Role" t="Include">
@@ -55,6 +59,9 @@
               </e>
               <e p="SkillInterface.cs" t="Include" />
             </e>
+          </e>
+          <e p="Window" t="Include">
+            <e p="HeroListWindow.cs" t="Include" />
           </e>
         </e>
       </e>
