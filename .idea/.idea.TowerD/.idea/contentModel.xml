@@ -62,6 +62,7 @@
           </e>
           <e p="Window" t="Include">
             <e p="HeroListWindow.cs" t="Include" />
+            <e p="PlotDialogWindow.cs" t="Include" />
             <e p="SelectPlotWindow.cs" t="Include" />
           </e>
         </e>
