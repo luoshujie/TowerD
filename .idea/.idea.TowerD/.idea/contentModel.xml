@@ -24,16 +24,17 @@
           </e>
         </e>
         <e p="Script" t="Include">
+          <e p="FightUiMgr.cs" t="Include" />
           <e p="Item" t="Include">
             <e p="HeroCardItem.cs" t="Include" />
             <e p="HeroItem.cs" t="Include" />
           </e>
           <e p="MainNodeMgr.cs" t="Include" />
           <e p="Manager" t="Include">
+            <e p="FightMgr.cs" t="Include" />
             <e p="WindowMgr.cs" t="Include" />
           </e>
-          <e p="PlaceContent.cs" t="Include" />
-          <e p="PlacePlatform.cs" t="Include" />
+          <e p="PlatformItem.cs" t="Include" />
           <e p="Role" t="Include">
             <e p="Control" t="Include">
               <e p="BaseControl.cs" t="Include" />
@@ -41,6 +42,9 @@
                 <e p="GunmenControl.cs" t="Include" />
               </e>
               <e p="HeroControl.cs" t="Include" />
+              <e p="MonsterControl" t="Include">
+                <e p="BeeMonsterControl.cs" t="Include" />
+              </e>
             </e>
             <e p="Data" t="Include">
               <e p="BaseData.cs" t="Include" />
@@ -63,6 +67,7 @@
           <e p="Window" t="Include">
             <e p="HeroDescWindow.cs" t="Include" />
             <e p="HeroListWindow.cs" t="Include" />
+            <e p="MainUi.cs" t="Include" />
             <e p="PlotDialogWindow.cs" t="Include" />
             <e p="SelectPlotWindow.cs" t="Include" />
           </e>

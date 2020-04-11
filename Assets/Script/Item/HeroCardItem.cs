@@ -8,12 +8,12 @@ namespace Script.Item
         public int heroModelId;
         public void OnPointerDown(PointerEventData eventData)
         {
-            PlaceContent.MoveEvent.Invoke(true,heroModelId);
+            FightUiMgr.instance.Move(true,heroModelId);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            PlaceContent.MoveEvent.Invoke(false,heroModelId);
+            FightUiMgr.instance.Move(false,heroModelId);
         }
     }
 }
