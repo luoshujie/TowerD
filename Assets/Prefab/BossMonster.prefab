@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7719964612844976220}
   - component: {fileID: 7719964612844976221}
   - component: {fileID: 7719964612844976167}
+  - component: {fileID: 837303341687300191}
   m_Layer: 0
   m_Name: BossMonster
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7719964612844976216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.48, y: 0, z: 0}
-  m_LocalScale: {x: 2.09, y: 2.09, z: 2.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8389895985437379725}
   m_Father: {fileID: 0}
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d8b0b1bad7ee9a54e8f982325be509af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6371493ff3d17a40a6f9fb982ad6658, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +133,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3b93e67139ca64f871e11a79c28b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animState: 0
+--- !u!95 &837303341687300191
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719964612844976216}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d34bbda716885d428fe89316e8656cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7808456706042854542
 GameObject:
   m_ObjectHideFlags: 0
