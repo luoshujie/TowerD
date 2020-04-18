@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Script.Role.Control.Hero;
 using Script.Role.Control.MonsterControl;
 using Script.Role.Data;
 using UnityEngine;
@@ -27,6 +28,14 @@ namespace Script.Manager
         private void Start()
         {
             InstantiateMonster();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                TouchHero();
+            }
         }
 
         public void InstantiateMonster()
@@ -101,6 +110,18 @@ namespace Script.Manager
                     }
                 }
             }
+        }
+
+        public HeroControl TouchHero()
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray,out hit,Mathf.Infinity,1 <<LayerMask.NameToLayer("Hero")))
+            {
+                Debug.LogWarning(hit.collider.name);
+            }
+
+            return null;
         }
     }
 }

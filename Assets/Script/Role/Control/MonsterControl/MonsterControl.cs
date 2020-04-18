@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Script.Role.Control.Hero;
 using Script.Role.Data;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Role.Control.MonsterControl
 {
@@ -12,15 +14,35 @@ namespace Script.Role.Control.MonsterControl
         private Vector3 nextPos;
         public new MonsterData data;
         protected HeroControl targetControl;
+        
 
         private void Awake()
         {
             anim = GetComponent<Animator>();
+            animList = anim.runtimeAnimatorController.animationClips;
         }
 
-        public void InitPath( List<Transform> posList)
+        public void InvokeChangeState()
         {
-            pathPosList=new List<Vector3>();
+            animState = false;
+        }
+
+        public float GetAnimTime(string animName)
+        {
+            for (int i = 0; i < animList.Length; i++)
+            {
+                if (animList[i].name == animName)
+                {
+                    return animList[i].length;
+                }
+            }
+
+            return 0;
+        }
+
+        public void InitPath(List<Transform> posList)
+        {
+            pathPosList = new List<Vector3>();
             transform.position = posList[0].position;
             for (int i = 1; i < posList.Count; i++)
             {
@@ -34,7 +56,11 @@ namespace Script.Role.Control.MonsterControl
 
         private void FixedUpdate()
         {
-            if (data==null)
+            if (animState)
+            {
+                return;
+            }
+            if (data == null)
             {
                 return;
             }
@@ -44,12 +70,12 @@ namespace Script.Role.Control.MonsterControl
                 return;
             }
 
-            if (data.CurrentAttackInterval>0)
+            if (data.CurrentAttackInterval > 0)
             {
                 data.CurrentAttackInterval -= Time.fixedDeltaTime;
             }
 
-            if (targetControl==null)
+            if (targetControl == null)
             {
                 OnMoveForTarget();
             }
@@ -66,33 +92,42 @@ namespace Script.Role.Control.MonsterControl
                 targetControl = null;
                 return;
             }
-            if (targetControl!=null&&targetControl.data.Alive)
+
+            if (targetControl != null && targetControl.data.Alive)
             {
-                
-                if (data.CurrentAttackInterval<=0)
+                if (data.CurrentAttackInterval <= 0)
                 {
                     //攻击
+                    
                     Damage();
                     data.CurrentAttackInterval = data.AttackInterval;
                 }
             }
         }
+
         public override void Damage()
         {
             //播放攻击动画
             //一定时间后造成伤害
-            targetControl.Hurt(data.Attack);
+            anim.Play("Attack");
+            animState = true;
+            Invoke(nameof(InvokeChangeState),GetAnimTime("Attack"));
+            DOTween.Sequence().InsertCallback(0.2f, () => { targetControl.Hurt(data.Attack); });
         }
 
         public void OnMoveForTarget()
         {
             if (Vector3.Distance(transform.position, nextPos) > 1)
             {
-                transform.position += (nextPos - transform.position).normalized * Time.fixedDeltaTime*data.speed;
+                transform.position += (nextPos - transform.position).normalized * Time.fixedDeltaTime * data.speed;
+                if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+                {
+                    anim.Play("Walk");
+                }
             }
             else
             {
-                if (pathPosList.Count>0)
+                if (pathPosList.Count > 0)
                 {
                     nextPos = pathPosList[0];
                     pathPosList.RemoveAt(0);
@@ -112,16 +147,18 @@ namespace Script.Role.Control.MonsterControl
                 LifeChange(-value);
             }
         }
+
         public override void LifeChange(int value)
         {
             data.Life += value;
-            if (data.Life<0)
+            if (data.Life < 0)
             {
                 data.Life = 0;
                 data.Alive = false;
                 Die();
             }
         }
+
         public override void Die()
         {
             gameObject.SetActive(false);
@@ -130,12 +167,12 @@ namespace Script.Role.Control.MonsterControl
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (targetControl==null)
+            if (targetControl == null)
             {
                 if (other.CompareTag("Hero"))
                 {
                     HeroControl control = other.transform.parent.GetComponent<HeroControl>();
-                    if (control.data.Alive&&control.data.Stance==data.Stance)
+                    if (control.data.Alive && control.data.Stance == data.Stance)
                     {
                         targetControl = control;
                     }

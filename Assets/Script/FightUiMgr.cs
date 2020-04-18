@@ -11,6 +11,7 @@ namespace Script
     {
         public static FightUiMgr instance;
         private GameObject _dragObj;
+        public Transform content;
 
         private void Awake()
         {
@@ -24,6 +25,11 @@ namespace Script
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 pos.z = 10;
                 _dragObj.transform.position =pos;
+                if (!_dragObj.activeSelf)
+                {
+                    _dragObj.SetActive(true);
+                }
+                
             }
         }
 
@@ -34,7 +40,7 @@ namespace Script
             if (state)
             {
                 _dragObj = FightMgr.instance.GetHeroModel(heroId);
-                _dragObj.SetActive(true);
+                
                 FightMgr.instance.ShowHighlight(StanceEnum.Highland);
             }
             else
@@ -47,7 +53,7 @@ namespace Script
 
             int dir = state ? -1 : 1;
             _moveTween?.Kill(true);
-            _moveTween = transform.DOBlendableMoveBy(dir * 50 * transform.up, 0.5f);
+            _moveTween = content.DOBlendableMoveBy(dir * 5 * content.up, 0.5f);
         }
         
         private bool GetPlaceState(StanceEnum stance)

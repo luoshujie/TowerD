@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices.WindowsRuntime;
+using DG.Tweening;
 using Script.Role.Data;
 using Script.Role.Skill;
 using UnityEngine;
@@ -13,25 +14,62 @@ namespace Script.Role.Control.Hero
         public new HeroData data;
         public ISkillInterface skill;
 
+        public NatureUi natureUi;
+
         private void Awake()
         {
             anim = GetComponent<Animator>();
+            animList = anim.runtimeAnimatorController.animationClips;
         }
 
         private void Start()
         {
+            anim.Play("Idle");
             Init();
+            natureUi.Init(data);
         }
 
         public void Init()
         {
             InitData();
             InitSkill();
-            InvokeRepeating(nameof(ReplyEnergy), data.EnergyCoolTime, data.EnergyCoolTime);
+            InvokeRepeating(nameof(ReplyEnergy), 1, 1);
+        }
+
+        public void InvokeChangeState()
+        {
+            animState = false;
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                anim.Play("Idle");
+            }
+        }
+
+        private void SendMessage()
+        {
+            Debug.LogWarning(name);
+        }
+
+        public float GetAnimTime(string animName)
+        {
+            for (int i = 0; i < animList.Length; i++)
+            {
+                if (animList[i].name == animName)
+                {
+                    return animList[i].length;
+                }
+            }
+
+            return 0;
         }
 
         private void FixedUpdate()
         {
+            if (animState)
+            {
+                return;
+            }
+
             if (data == null)
             {
                 return;
@@ -65,6 +103,7 @@ namespace Script.Role.Control.Hero
                 {
                     data.Energy = data.MaxEnergy;
                 }
+                natureUi.UpdateEnergy();
             }
         }
 
@@ -105,6 +144,7 @@ namespace Script.Role.Control.Hero
                     Die();
                 }
             }
+            natureUi.UpdateLifeDisplay();
         }
 
         public override void Die()
@@ -133,7 +173,10 @@ namespace Script.Role.Control.Hero
         {
             //播放动作
             //延时造成伤害
-            targetControl.Hurt(data.Attack);
+            anim.Play("Attack");
+            animState = true;
+            Invoke(nameof(InvokeChangeState), GetAnimTime("Attack"));
+            DOTween.Sequence().InsertCallback(0.2f, () => { targetControl.Hurt(data.Attack); });
         }
 
         private void OnTriggerStay2D(Collider2D other)

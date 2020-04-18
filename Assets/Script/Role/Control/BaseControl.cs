@@ -8,6 +8,8 @@ namespace Script.Role.Control
     {
         protected Animator anim;
         public BaseData data;
+        protected AnimationClip[] animList;
+        protected bool animState;
         public abstract void Hurt(int value);
         public abstract void LifeChange(int value);
         public abstract void Die();
