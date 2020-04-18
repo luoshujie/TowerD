@@ -9,11 +9,6 @@ namespace Script.Role.Data
         /// </summary>
         public OccupationEnum Occupation;
 
-        /// <summary>
-        /// 站位
-        /// </summary>
-        public StanceEnum Stance;
-
         public int Energy;
         public int MaxEnergy;
 

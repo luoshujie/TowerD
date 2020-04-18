@@ -40,22 +40,20 @@
               <e p="BaseControl.cs" t="Include" />
               <e p="Hero" t="Include">
                 <e p="GunmenControl.cs" t="Include" />
+                <e p="HeroControl.cs" t="Include" />
               </e>
-              <e p="HeroControl.cs" t="Include" />
               <e p="MonsterControl" t="Include">
                 <e p="BeeMonsterControl.cs" t="Include" />
+                <e p="BossMonsterControl.cs" t="Include" />
+                <e p="DogMonsterControl.cs" t="Include" />
+                <e p="MonsterControl.cs" t="Include" />
+                <e p="SlimeMonsterControl.cs" t="Include" />
               </e>
             </e>
             <e p="Data" t="Include">
               <e p="BaseData.cs" t="Include" />
               <e p="HeroData.cs" t="Include" />
               <e p="MonsterData.cs" t="Include" />
-            </e>
-            <e p="Fsm" t="Include">
-              <e p="FsmSystem.cs" t="Include" />
-              <e p="StateBase.cs" t="Include" />
-              <e p="StateID.cs" t="Include" />
-              <e p="Transition.cs" t="Include" />
             </e>
             <e p="Skill" t="Include">
               <e p="Skill" t="Include">

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlacePlatform
   - Monster
+  - Hero
   layers:
   - Default
   - TransparentFX

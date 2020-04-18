@@ -5,6 +5,8 @@
         public AttackTargetEnum AttackTarget;
 
         public AscriptionEnum Ascription;
+        
+        public StanceEnum Stance;
 
         public string RoleName;
         
@@ -16,7 +18,7 @@
         public int Attack;
         public int Defense;
         public float AttackInterval;
-        public int CurrentAttackInterval;
+        public float CurrentAttackInterval;
     }
 
     public enum OccupationEnum
@@ -52,7 +54,8 @@
         /// <summary>
         /// 低地
         /// </summary>
-        Lowland
+        Lowland,
+        None
     }
 
     /// <summary>

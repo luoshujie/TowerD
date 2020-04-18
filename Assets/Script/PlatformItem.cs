@@ -19,7 +19,9 @@ namespace Script
         public void InstantiateHero(GameObject heroModel)
         {
             hero = Instantiate(heroModel, transform);
+            
             hero.transform.localPosition = Vector3.zero;
+            hero.SetActive(true);
         }
 
         public void DeleteHero()
@@ -36,14 +38,6 @@ namespace Script
         public void CloseHighlight()
         {
             highlightSprite.SetActive(false);
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (CompareTag("Monster"))
-            {
-                Debug.LogWarning(other.name);
-            }
         }
     }
 }

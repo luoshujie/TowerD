@@ -12,6 +12,8 @@ namespace Script.Manager
         public static FightMgr instance;
         public List<PlatformItem> platformItemList;
         public List<GameObject> heroModelList;
+
+        public List<GameObject> heroSpriteList;
         
         public List<GameObject> monsterList;
         public Transform monsterContent;
@@ -38,7 +40,7 @@ namespace Script.Manager
             for (int i = 0; i < cnt; i++)
             {
                 GameObject monster=Instantiate(monsterList[0],monsterContent);
-                monster.GetComponent<BeeMonsterControl>().Init(monsterPathList);
+                monster.GetComponent<MonsterControl>().InitPath( monsterPathList);
                 monster.SetActive(true);
                 yield return waitForSeconds;
             }
@@ -46,12 +48,26 @@ namespace Script.Manager
 
         public GameObject GetHeroModel(int id)
         {
-            if (heroModelList.Count > id)
+            if (heroSpriteList.Count > id)
             {
-                return heroModelList[id];
+                return heroSpriteList[id];
             }
+            else
+            {
+                return heroSpriteList[0];
+            }
+        }
 
-            return heroModelList[0];
+        public GameObject GetHeroPrefab(int heroId)
+        {
+            if (heroModelList.Count > heroId)
+            {
+                return heroModelList[heroId];
+            }
+            else
+            {
+                return heroModelList[0];
+            }
         }
         
         public void ShowHighlight(StanceEnum stanceEnum)
@@ -65,7 +81,7 @@ namespace Script.Manager
             }
         }
 
-        public void CloseHighlight(GameObject heroModel, StanceEnum stanceEnum)
+        public void CloseHighlight(int heroId, StanceEnum stanceEnum)
         {
             for (int i = 0; i < platformItemList.Count; i++)
             {
@@ -81,7 +97,7 @@ namespace Script.Manager
                 {
                     if (Vector3.Distance(platformItemList[i].transform.position, pos) < 1)
                     {
-                        platformItemList[i].InstantiateHero(heroModel);
+                        platformItemList[i].InstantiateHero(GetHeroPrefab(heroId));
                     }
                 }
             }

@@ -39,7 +39,7 @@ namespace Script
             }
             else
             {
-                FightMgr.instance.CloseHighlight(_dragObj,StanceEnum.Highland);
+                FightMgr.instance.CloseHighlight(heroId,StanceEnum.Highland);
                 _dragObj.SetActive(false);
                 _dragObj = null;
                 
