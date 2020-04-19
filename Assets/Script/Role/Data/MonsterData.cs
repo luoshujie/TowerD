@@ -22,5 +22,10 @@
             this.Stance = stance;
             this.speed = speed;
         }
+
+        public MonsterData Clone()
+        {
+            return MemberwiseClone() as MonsterData;
+        }
     }
 }

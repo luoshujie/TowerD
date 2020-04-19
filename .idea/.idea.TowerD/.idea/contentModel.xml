@@ -24,6 +24,10 @@
           </e>
         </e>
         <e p="Script" t="Include">
+          <e p="Config" t="Include">
+            <e p="HeroConfig.cs" t="Include" />
+            <e p="LevelConfig.cs" t="Include" />
+          </e>
           <e p="HeroSelectCollider.cs" t="Include" />
           <e p="Item" t="Include">
             <e p="HeroCardItem.cs" t="Include" />

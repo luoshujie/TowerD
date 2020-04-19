@@ -3318,8 +3318,8 @@ MonoBehaviour:
   - {fileID: 1735635802}
   monsterList:
   - {fileID: 175637442477181491, guid: 5c604fdff4853274db7840281af96f40, type: 3}
+  - {fileID: 4798879665137387923, guid: 3609acd2ef3c152469e0266033e013a9, type: 3}
   - {fileID: 1506534044566626416, guid: 125dd81c6b751334dbfa70fbbe0bb1e1, type: 3}
-  - {fileID: 175637442477181491, guid: 5c604fdff4853274db7840281af96f40, type: 3}
   - {fileID: 7719964612844976216, guid: 75c4ceeb1766d334a9183b78177d92e4, type: 3}
   monsterContent: {fileID: 46204317}
   monsterPathList:

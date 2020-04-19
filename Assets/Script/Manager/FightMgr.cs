@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Script.Config;
 using Script.Role.Control.Hero;
 using Script.Role.Control.MonsterControl;
 using Script.Role.Data;
@@ -27,6 +28,10 @@ namespace Script.Manager
         public Transform monsterContent;
 
         public List<PathData> monsterPathList;
+
+        private LevelData _levelData;
+        private int monsterSpawnIndex;
+        
         private void Awake()
         {
             instance = this;
@@ -34,25 +39,30 @@ namespace Script.Manager
 
         private void Start()
         {
+            _levelData = LevelConfig.GetLevelData(1);
+            monsterSpawnIndex = 0;
             InstantiateMonster();
         }
         
 
         public void InstantiateMonster()
         {
-            StartCoroutine(SpawnMonster(2));
+            StartCoroutine(SpawnMonster());
         }
 
         private WaitForSeconds waitForSeconds=new WaitForSeconds(2);
-        IEnumerator SpawnMonster(int cnt)
+        IEnumerator SpawnMonster()
         {
-            for (int i = 0; i < cnt; i++)
+            List<LevelMonsterData> levelMonsterData = _levelData.monsterIdList[monsterSpawnIndex];
+            for (int i = 0; i < levelMonsterData.Count; i++)
             {
-                GameObject monster=Instantiate(monsterList[0],monsterContent);
-                monster.GetComponent<MonsterControl>().InitPath( monsterPathList[0].pathList);
+                GameObject monster=Instantiate(monsterList[levelMonsterData[i].monsterId],monsterContent);
+                monster.GetComponent<MonsterControl>().InitPath( monsterPathList[levelMonsterData[i].pathId].pathList);
                 monster.SetActive(true);
                 yield return waitForSeconds;
             }
+
+            monsterSpawnIndex++;
         }
 
         public GameObject GetHeroModel(int id)
