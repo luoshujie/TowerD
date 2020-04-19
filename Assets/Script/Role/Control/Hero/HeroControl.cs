@@ -26,7 +26,7 @@ namespace Script.Role.Control.Hero
         {
             anim.Play("Idle");
             Init();
-            natureUi.Init(data,CancelHero);
+            natureUi.Init(data,CancelHero,UseSkill);
         }
 
         private void CancelHero()
@@ -112,15 +112,14 @@ namespace Script.Role.Control.Hero
             }
         }
 
-        public virtual bool UseSkill()
+        public virtual void UseSkill()
         {
             if (data.Alive && data.Energy >= data.MaxEnergy)
             {
                 data.Energy = 0;
-                skill.UseSkill(data);
+                Debug.LogWarning("使用技能");
+                //skill.UseSkill(data);
             }
-
-            return false;
         }
 
         public override void Hurt(int value)

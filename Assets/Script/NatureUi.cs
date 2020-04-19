@@ -15,15 +15,17 @@ namespace Script
         private HeroData data;
 
         private Action cancelComplete;
+        private Action skillComplete;
         private void Awake()
         {
             cancelBtn.onClick.AddListener(()=>{cancelComplete?.Invoke();});
-            skillBtn.onClick.AddListener(()=>{});
+            skillBtn.onClick.AddListener(()=>{skillComplete?.Invoke();});
         }
 
-        public void Init(HeroData heroData,Action cancelCallback)
+        public void Init(HeroData heroData,Action cancelCallback,Action skillCallback)
         {
             cancelComplete = cancelCallback;
+            skillComplete = skillCallback;
             data = heroData;
 //            skillImg.sprite
             UpdateLifeDisplay();
@@ -39,6 +41,17 @@ namespace Script
         public void UpdateEnergy()
         {
             skillProgressImg.fillAmount = data.Energy * 1f / data.MaxEnergy;
+            if (skillProgressImg.fillAmount==1)
+            {
+                skillBtn.interactable = true;
+            }
+            else if (skillBtn.interactable)
+            {
+                skillBtn.interactable = false;
+            }
+            {
+                
+            }
         }
 
         public void ShowCancelBtn()
