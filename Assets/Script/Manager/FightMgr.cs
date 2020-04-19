@@ -8,6 +8,13 @@ using UnityEngine;
 
 namespace Script.Manager
 {
+    [Serializable]
+    public class PathData
+    {
+        public int id;
+        public List<Transform> pathList;
+    }
+    
     public class FightMgr : MonoBehaviour
     {
         public static FightMgr instance;
@@ -19,7 +26,7 @@ namespace Script.Manager
         public List<GameObject> monsterList;
         public Transform monsterContent;
 
-        public List<Transform> monsterPathList;
+        public List<PathData> monsterPathList;
         private void Awake()
         {
             instance = this;
@@ -29,14 +36,7 @@ namespace Script.Manager
         {
             InstantiateMonster();
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                TouchHero();
-            }
-        }
+        
 
         public void InstantiateMonster()
         {
@@ -49,7 +49,7 @@ namespace Script.Manager
             for (int i = 0; i < cnt; i++)
             {
                 GameObject monster=Instantiate(monsterList[0],monsterContent);
-                monster.GetComponent<MonsterControl>().InitPath( monsterPathList);
+                monster.GetComponent<MonsterControl>().InitPath( monsterPathList[0].pathList);
                 monster.SetActive(true);
                 yield return waitForSeconds;
             }
@@ -110,18 +110,6 @@ namespace Script.Manager
                     }
                 }
             }
-        }
-
-        public HeroControl TouchHero()
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray,out hit,Mathf.Infinity,1 <<LayerMask.NameToLayer("Hero")))
-            {
-                Debug.LogWarning(hit.collider.name);
-            }
-
-            return null;
         }
     }
 }

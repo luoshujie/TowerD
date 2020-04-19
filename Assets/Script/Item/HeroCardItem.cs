@@ -1,4 +1,5 @@
 ﻿using System;
+using Script.Role.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ namespace Script.Item
         public Text priceText;
         public int price;
         public GameObject selectTips;
+        public StanceEnum stanceEnum;
 
         private void Start()
         {
@@ -19,13 +21,13 @@ namespace Script.Item
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            Game.instance.Move(true,heroModelId);
+            Game.instance.Move(true,heroModelId,stanceEnum);
             selectTips.SetActive(true);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            Game.instance.Move(false,heroModelId);
+            Game.instance.Move(false,heroModelId,stanceEnum);
             selectTips.SetActive(false);
 
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Script.Role.Control.Hero;
 using Script.Role.Data;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -20,7 +21,7 @@ namespace Script
         {
             hero = Instantiate(heroModel, transform);
             
-            hero.transform.localPosition = Vector3.zero;
+            hero.GetComponent<HeroControl>().SetPos();
             hero.SetActive(true);
         }
 

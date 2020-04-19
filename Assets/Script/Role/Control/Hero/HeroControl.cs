@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using DG.Tweening;
 using Script.Role.Data;
@@ -48,6 +49,11 @@ namespace Script.Role.Control.Hero
             {
                 anim.Play("Idle");
             }
+        }
+
+        public virtual void SetPos()
+        {
+            
         }
 
         private void SendMessage()

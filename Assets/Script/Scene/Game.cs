@@ -49,38 +49,21 @@ namespace Script
         }
         
 
-        public void Move(bool state, int heroId)
+        public void Move(bool state, int heroId,StanceEnum stanceEnum)
         {
             if (state)
             {
                 _dragObj = FightMgr.instance.GetHeroModel(heroId);
                 
-                FightMgr.instance.ShowHighlight(StanceEnum.Highland);
+                FightMgr.instance.ShowHighlight(stanceEnum);
             }
             else
             {
-                FightMgr.instance.CloseHighlight(heroId,StanceEnum.Highland);
+                FightMgr.instance.CloseHighlight(heroId,stanceEnum);
                 _dragObj.SetActive(false);
                 _dragObj = null;
                 
             }
-        }
-        
-        private bool GetPlaceState(StanceEnum stance)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out var hit))
-            {
-                if (hit.collider.CompareTag($"PlacePlatform"))
-                {
-                    if (hit.collider.GetComponent<PlatformItem>().stance == stance)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
         }
     }
 }
