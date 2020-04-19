@@ -24,16 +24,15 @@
           </e>
         </e>
         <e p="Script" t="Include">
-          <e p="Game.cs" t="Include" />
           <e p="HeroSelectCollider.cs" t="Include" />
           <e p="Item" t="Include">
             <e p="HeroCardItem.cs" t="Include" />
             <e p="HeroItem.cs" t="Include" />
           </e>
-          <e p="MainNodeMgr.cs" t="Include" />
           <e p="Manager" t="Include">
             <e p="FightMgr.cs" t="Include" />
             <e p="MainMgr.cs" t="Include" />
+            <e p="TextureMgr.cs" t="Include" />
             <e p="WindowMgr.cs" t="Include" />
           </e>
           <e p="NatureUi.cs" t="Include" />
@@ -66,6 +65,7 @@
             </e>
           </e>
           <e p="Scene" t="Include">
+            <e p="Game.cs" t="Include" />
             <e p="Home.cs" t="Include" />
             <e p="Init.cs" t="Include" />
           </e>
