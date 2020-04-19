@@ -4,17 +4,24 @@ using DG.Tweening;
 using Script.Manager;
 using Script.Role.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Script
 {
-    public class FightUiMgr : MonoBehaviour
+    public class Game : MonoBehaviour
     {
-        public static FightUiMgr instance;
+        public static Game instance;
         private GameObject _dragObj;
         public Transform content;
 
         private void Awake()
         {
+//            if (MainMgr.instance==null)
+//            {
+//                SceneManager.LoadScene("Init");
+//                return;
+//            }
+//            WindowMgr.instance.UpdateCamera();
             instance = this;
         }
 

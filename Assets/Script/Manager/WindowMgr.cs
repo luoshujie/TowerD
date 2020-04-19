@@ -1,18 +1,32 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindowMgr : MonoBehaviour
+namespace Script.Manager
 {
-    // Start is called before the first frame update
-    void Start()
+    public class WindowMgr : MonoBehaviour
     {
-        
-    }
+        public static WindowMgr instance;
+        public Dictionary<Type,string>windowPath=new Dictionary<Type, string>()
+        {
+            {typeof(MainMgr),"Window/MainMgr"}
+        };
 
-    // Update is called once per frame
-    void Update()
-    {
+        private void Awake()
+        {
+            instance = this;
+        }
         
+
+        public T ShowWindow<T>() where T : class
+        {
+            GameObject window = Resources.Load<GameObject>(windowPath[typeof(T)]);
+            return Instantiate(window, transform).GetComponent<T>();
+        }
+
+        public void UpdateCamera()
+        {
+            GetComponent<Canvas>().worldCamera=Camera.main;
+        }
     }
 }

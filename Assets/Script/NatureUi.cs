@@ -1,4 +1,5 @@
-﻿using Script.Role.Data;
+﻿using System;
+using Script.Role.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,19 @@ namespace Script
         public Button skillBtn;
         public Image skillProgressImg;
         public Image skillImg;
-
+        public Button cancelBtn;
         private HeroData data;
 
-        public void Init(HeroData heroData)
+        private Action cancelComplete;
+        private void Awake()
         {
+            cancelBtn.onClick.AddListener(()=>{cancelComplete?.Invoke();});
+            skillBtn.onClick.AddListener(()=>{});
+        }
+
+        public void Init(HeroData heroData,Action cancelCallback)
+        {
+            cancelComplete = cancelCallback;
             data = heroData;
 //            skillImg.sprite
             UpdateLifeDisplay();
@@ -30,6 +39,11 @@ namespace Script
         public void UpdateEnergy()
         {
             skillProgressImg.fillAmount = data.Energy * 1f / data.MaxEnergy;
+        }
+
+        public void ShowCancelBtn()
+        {
+            cancelBtn.gameObject.SetActive(!cancelBtn.gameObject.activeSelf);
         }
     }
 }

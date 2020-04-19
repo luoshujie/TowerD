@@ -24,7 +24,7 @@ namespace Script
             hero.SetActive(true);
         }
 
-        public void DeleteHero()
+        public void CancelHero()
         {
             Destroy(hero);
             hero = null;

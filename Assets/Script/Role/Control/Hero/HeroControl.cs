@@ -26,7 +26,12 @@ namespace Script.Role.Control.Hero
         {
             anim.Play("Idle");
             Init();
-            natureUi.Init(data);
+            natureUi.Init(data,CancelHero);
+        }
+
+        private void CancelHero()
+        {
+            transform.parent.GetComponent<PlatformItem>().CancelHero();
         }
 
         public void Init()
@@ -47,7 +52,7 @@ namespace Script.Role.Control.Hero
 
         private void SendMessage()
         {
-            Debug.LogWarning(name);
+            natureUi.ShowCancelBtn();
         }
 
         public float GetAnimTime(string animName)
