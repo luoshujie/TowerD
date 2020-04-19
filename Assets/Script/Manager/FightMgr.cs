@@ -28,6 +28,8 @@ namespace Script.Manager
         public Transform monsterContent;
 
         public List<PathData> monsterPathList;
+        
+        private IList<GameObject>sceneMonsterList=new List<GameObject>();
 
         private LevelData _levelData;
         private int monsterSpawnIndex;
@@ -59,6 +61,7 @@ namespace Script.Manager
                 GameObject monster=Instantiate(monsterList[levelMonsterData[i].monsterId],monsterContent);
                 monster.GetComponent<MonsterControl>().InitPath( monsterPathList[levelMonsterData[i].pathId].pathList);
                 monster.SetActive(true);
+                sceneMonsterList.Add(monster);
                 yield return waitForSeconds;
             }
 
@@ -74,6 +77,23 @@ namespace Script.Manager
             else
             {
                 return heroSpriteList[0];
+            }
+        }
+
+        public void MonsterDie(GameObject monster)
+        {
+            sceneMonsterList.Remove(monster);
+            if (sceneMonsterList.Count<=0)
+            {
+                //下一波
+                if (monsterSpawnIndex<_levelData.monsterIdList.Count)
+                {
+                    Invoke(nameof(InstantiateMonster),5);
+                }
+                else
+                {
+                    //打完了
+                }
             }
         }
 

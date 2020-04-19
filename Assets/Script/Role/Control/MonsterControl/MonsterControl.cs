@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Script.Manager;
 using Script.Role.Control.Hero;
 using Script.Role.Data;
 using UnityEngine;
@@ -14,11 +15,12 @@ namespace Script.Role.Control.MonsterControl
         private Vector3 nextPos;
         public new MonsterData data;
         protected HeroControl targetControl;
-        
+        protected SpriteRenderer renderer;
 
         private void Awake()
         {
             anim = GetComponent<Animator>();
+            renderer = GetComponent<SpriteRenderer>();
             animList = anim.runtimeAnimatorController.animationClips;
         }
 
@@ -119,6 +121,14 @@ namespace Script.Role.Control.MonsterControl
         {
             if (Vector3.Distance(transform.position, nextPos) > 1)
             {
+                if (nextPos.x<transform.position.x)
+                {
+                    renderer.flipX = true;
+                }
+                else
+                {
+                    renderer.flipX = false;
+                }
                 transform.position += (nextPos - transform.position).normalized * Time.fixedDeltaTime * data.speed;
                 if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
                 {
@@ -135,6 +145,7 @@ namespace Script.Role.Control.MonsterControl
                 else
                 {
                     Debug.LogWarning("到达目的地");
+                    FightMgr.instance.MonsterDie(gameObject);
                     Destroy(gameObject);
                 }
             }
@@ -161,6 +172,7 @@ namespace Script.Role.Control.MonsterControl
 
         public override void Die()
         {
+            FightMgr.instance.MonsterDie(gameObject);
             gameObject.SetActive(false);
             Debug.LogWarning("die");
         }
