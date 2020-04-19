@@ -5,6 +5,7 @@ using Script.Manager;
 using Script.Role.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Script
 {
@@ -12,8 +13,15 @@ namespace Script
     {
         public static Game instance;
         private GameObject _dragObj;
-        public Transform content;
 
+        public Text numText;
+        public Text crystalCntText;
+        public Text coinText;
+        public Button pauseBtn;
+        public Button addSpeedBtn;
+        public Button startFightBtn;
+        public Button retreatBtn;
+        
         private void Awake()
         {
 //            if (MainMgr.instance==null)
@@ -39,8 +47,7 @@ namespace Script
                 
             }
         }
-
-        private Tweener _moveTween;
+        
 
         public void Move(bool state, int heroId)
         {
@@ -57,10 +64,6 @@ namespace Script
                 _dragObj = null;
                 
             }
-
-            int dir = state ? -1 : 1;
-            _moveTween?.Kill(true);
-            _moveTween = content.DOBlendableMoveBy(dir * 5 * content.up, 0.5f);
         }
         
         private bool GetPlaceState(StanceEnum stance)
