@@ -28,6 +28,7 @@ namespace Script.Window
 
         private void Start()
         {
+            MainMgr.instance.PlayOpenWindowAudio();
             SetAudioImg();
         }
 

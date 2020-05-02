@@ -1,4 +1,5 @@
 ﻿using System;
+using Script.Manager;
 using UnityEngine;
 
 namespace Script.Window
@@ -10,6 +11,7 @@ namespace Script.Window
 
         private void Start()
         {
+            MainMgr.instance.PlayOpenWindowAudio();
             Invoke(nameof(Close),time);
         }
 

@@ -29,6 +29,7 @@ namespace Script.Window
             {
                 btnList[i].onClick.AddListener(() => { WindowMgr.instance.ShowWindow<TipsWindow>();});
             }
+            MainMgr.instance.PlayOpenWindowAudio();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Script.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ namespace Script.Window
         {
             closeBtn.onClick.AddListener(()=>{Destroy(gameObject);});
             closeAllBtn.onClick.AddListener(()=>{Destroy(gameObject);});
+            MainMgr.instance.PlayOpenWindowAudio();
         }
 
         public void Show(int index)

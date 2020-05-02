@@ -10,7 +10,6 @@ namespace Script.Manager
         public static WindowMgr instance;
         public Dictionary<Type,string>windowPath=new Dictionary<Type, string>()
         {
-            {typeof(MainMgr),"Window/MainMgr"},
             {typeof(TipsWindow),"Window/TipsWindow"},
             {typeof(PauseWindow),"Window/PauseWindow"},
             {typeof(LevelSelectWindow),"Window/LevelSelectWindow"},

@@ -23,6 +23,7 @@ namespace Script.Window
             });
             quitBtn.onClick.AddListener(Application.Quit);
             SetAudioImg();
+            MainMgr.instance.PlayOpenWindowAudio();
         }
 
         private void SetAudioImg()

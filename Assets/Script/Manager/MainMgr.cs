@@ -10,6 +10,8 @@ namespace Script.Manager
 
         public AudioClip[] backGroupAudioList;
 
+        public AudioClip openWindowAudio;
+
         private void Awake()
         {
             instance = this;
@@ -21,6 +23,11 @@ namespace Script.Manager
             audioSource.Stop();
             audioSource.clip = backGroupAudioList[index];
             audioSource.Play();
+        }
+
+        public void PlayOpenWindowAudio()
+        {
+            audioSource.PlayOneShot(openWindowAudio);
         }
 
         public bool SetAudioState()

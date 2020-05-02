@@ -548,6 +548,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4ea8c497f6b094c499947bf701bc81c9, type: 3}
   - {fileID: 8300000, guid: b7b38ac29117d754f8a56c17a8a5800b, type: 3}
   - {fileID: 8300000, guid: 1094f3d2dd8eaec49ac21f5797925fca, type: 3}
+  openWindowAudio: {fileID: 8300000, guid: d7c2dcc0e08cc9949aa17d9016c2bbc5, type: 3}
 --- !u!114 &502261004
 MonoBehaviour:
   m_ObjectHideFlags: 0

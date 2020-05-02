@@ -30,6 +30,8 @@ namespace Script.Window
             }
             tipsHeroBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<TipsWindow>(); });
             MainMgr.instance.PlayBackGroupAudio(1);
+            MainMgr.instance.PlayOpenWindowAudio();
+
         }
 
         private void ShowHeroDesc(int index)
