@@ -20,7 +20,6 @@ namespace Script.Manager
 
         public void PlayBackGroupAudio(int index)
         {
-            audioSource.Stop();
             audioSource.clip = backGroupAudioList[index];
             audioSource.Play();
         }

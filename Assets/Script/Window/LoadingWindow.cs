@@ -11,7 +11,6 @@ namespace Script.Window
 
         private void Start()
         {
-            MainMgr.instance.PlayOpenWindowAudio();
             Invoke(nameof(Close),time);
         }
 

@@ -26,8 +26,12 @@ namespace Script.Manager
         }
         
 
-        public T ShowWindow<T>() where T : class
+        public T ShowWindow<T>(bool needAudio=true) where T : class
         {
+            if (needAudio)
+            {
+                MainMgr.instance.PlayOpenWindowAudio();
+            }
             GameObject window = Resources.Load<GameObject>(windowPath[typeof(T)]);
             return Instantiate(window, transform).GetComponent<T>();
         }

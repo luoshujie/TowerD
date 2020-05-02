@@ -17,7 +17,11 @@ namespace Script.Window
 
         private void Awake()
         {
-            continueBtn.onClick.AddListener(()=>{Destroy(gameObject);});
+            continueBtn.onClick.AddListener(() =>
+            {
+                MainMgr.instance.PlayOpenWindowAudio();
+                Destroy(gameObject);
+            });
             audioBtn.onClick.AddListener(SetAudio);
             quitBtn.onClick.AddListener(() =>
             {
@@ -28,7 +32,6 @@ namespace Script.Window
 
         private void Start()
         {
-            MainMgr.instance.PlayOpenWindowAudio();
             SetAudioImg();
         }
 

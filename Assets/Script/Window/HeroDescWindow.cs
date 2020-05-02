@@ -15,9 +15,18 @@ namespace Script.Window
 
         private void Awake()
         {
-            closeBtn.onClick.AddListener(()=>{Destroy(gameObject);});
-            closeAllBtn.onClick.AddListener(()=>{Destroy(gameObject);});
-            MainMgr.instance.PlayOpenWindowAudio();
+            closeBtn.onClick.AddListener(() =>
+            {
+                MainMgr.instance.PlayOpenWindowAudio();
+
+                Destroy(gameObject);
+            });
+            closeAllBtn.onClick.AddListener(() =>
+            {
+                MainMgr.instance.PlayOpenWindowAudio();
+
+                Destroy(gameObject);
+            });
         }
 
         public void Show(int index)

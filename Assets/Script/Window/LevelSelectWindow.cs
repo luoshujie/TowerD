@@ -15,7 +15,11 @@ namespace Script.Window
 
         private void Awake()
         {
-            closeBtn.onClick.AddListener(()=>{Destroy(gameObject);});
+            closeBtn.onClick.AddListener(() =>
+            {
+                MainMgr.instance.PlayOpenWindowAudio();
+                Destroy(gameObject);
+            });
             fightBtn.onClick.AddListener(() =>
             {
                 WindowMgr.instance.ShowWindow<LoadingWindow>().Loading(() =>
@@ -29,7 +33,6 @@ namespace Script.Window
             {
                 btnList[i].onClick.AddListener(() => { WindowMgr.instance.ShowWindow<TipsWindow>();});
             }
-            MainMgr.instance.PlayOpenWindowAudio();
         }
     }
 }

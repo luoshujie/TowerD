@@ -48,7 +48,7 @@ namespace Script.Manager
 
         private void Start()
         {
-            WindowMgr.instance.ShowWindow<DialogWindow>().Init(0,5,()=>{});
+            WindowMgr.instance.ShowWindow<DialogWindow>(false).Init(0,5,()=>{});
             MainMgr.instance.PlayBackGroupAudio(2);
             _levelData = LevelConfig.GetLevelData(1);
             monsterSpawnIndex = 0;
