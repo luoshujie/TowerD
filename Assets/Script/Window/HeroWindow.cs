@@ -14,7 +14,12 @@ namespace Script.Window
 
         private void Awake()
         {
-            closeBtn.onClick.AddListener(()=>{Destroy(gameObject);});
+            closeBtn.onClick.AddListener(() =>
+            {
+                MainMgr.instance.PlayBackGroupAudio(0);
+
+                Destroy(gameObject);
+            });
             for (int i = 0; i < heroBtnList.Count; i++)
             {
                 var i1 = i;
@@ -24,6 +29,7 @@ namespace Script.Window
                 });
             }
             tipsHeroBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<TipsWindow>(); });
+            MainMgr.instance.PlayBackGroupAudio(1);
         }
 
         private void ShowHeroDesc(int index)

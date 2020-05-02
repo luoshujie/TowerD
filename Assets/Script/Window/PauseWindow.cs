@@ -1,5 +1,7 @@
 ﻿using System;
+using Script.Manager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Script.Window
@@ -15,9 +17,28 @@ namespace Script.Window
 
         private void Awake()
         {
-            continueBtn.onClick.AddListener(()=>{});
-            audioBtn.onClick.AddListener(()=>{});
-            quitBtn.onClick.AddListener(()=>{});
+            continueBtn.onClick.AddListener(()=>{Destroy(gameObject);});
+            audioBtn.onClick.AddListener(SetAudio);
+            quitBtn.onClick.AddListener(() =>
+            {
+                SceneManager.LoadScene("Home");
+                Destroy(gameObject);
+            });
+        }
+
+        private void Start()
+        {
+            SetAudioImg();
+        }
+
+        private void SetAudioImg()
+        {
+            audioImg.sprite = MainMgr.instance.GetBackGroupState() ? audioOffSprite : audioOnSprite;
+        }
+        private void SetAudio()
+        {
+            MainMgr.instance.SetAudioState();
+            SetAudioImg();
         }
     }
 }

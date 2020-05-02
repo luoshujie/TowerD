@@ -5,7 +5,9 @@ using Script.Config;
 using Script.Role.Control.Hero;
 using Script.Role.Control.MonsterControl;
 using Script.Role.Data;
+using Script.Window;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Script.Manager
 {
@@ -36,11 +38,18 @@ namespace Script.Manager
         
         private void Awake()
         {
+            if (MainMgr.instance==null)
+            {
+                SceneManager.LoadScene("Init");
+                return;
+            }
             instance = this;
         }
 
         private void Start()
         {
+            WindowMgr.instance.ShowWindow<DialogWindow>().Init(0,5,()=>{});
+            MainMgr.instance.PlayBackGroupAudio(2);
             _levelData = LevelConfig.GetLevelData(1);
             monsterSpawnIndex = 0;
             InstantiateMonster();

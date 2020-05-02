@@ -24,6 +24,7 @@
           </e>
         </e>
         <e p="Script" t="Include">
+          <e p="CameraMgr.cs" t="Include" />
           <e p="Config" t="Include">
             <e p="HeroConfig.cs" t="Include" />
             <e p="LevelConfig.cs" t="Include" />
@@ -79,7 +80,9 @@
             <e p="HeroDescWindow.cs" t="Include" />
             <e p="HeroWindow.cs" t="Include" />
             <e p="LevelSelectWindow.cs" t="Include" />
+            <e p="LoadingWindow.cs" t="Include" />
             <e p="PauseWindow.cs" t="Include" />
+            <e p="SettingWindow.cs" t="Include" />
             <e p="TipsWindow.cs" t="Include" />
           </e>
         </e>

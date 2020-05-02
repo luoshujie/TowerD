@@ -17,6 +17,8 @@ namespace Script.Manager
             {typeof(HeroWindow),"Window/HeroWindow"},
             {typeof(HeroDescWindow),"Window/HeroDescWindow"},
             {typeof(DialogWindow),"Window/DialogWindow"},
+            {typeof(LoadingWindow),"Window/LoadingWindow"},
+            {typeof(SettingWindow),"Window/SettingWindow"},
         };
 
         private void Awake()

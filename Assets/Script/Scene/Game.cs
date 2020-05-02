@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Script.Manager;
 using Script.Role.Data;
+using Script.Window;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,13 +25,8 @@ namespace Script
         
         private void Awake()
         {
-//            if (MainMgr.instance==null)
-//            {
-//                SceneManager.LoadScene("Init");
-//                return;
-//            }
-//            WindowMgr.instance.UpdateCamera();
             instance = this;
+            pauseBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<PauseWindow>();});
         }
 
         private void FixedUpdate()
