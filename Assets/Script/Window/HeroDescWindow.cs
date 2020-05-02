@@ -14,8 +14,8 @@ namespace Script.Window
 
         private void Awake()
         {
-            closeBtn.onClick.AddListener(()=>{});
-            closeAllBtn.onClick.AddListener(()=>{});
+            closeBtn.onClick.AddListener(()=>{Destroy(gameObject);});
+            closeAllBtn.onClick.AddListener(()=>{Destroy(gameObject);});
         }
 
         public void Show(int index)

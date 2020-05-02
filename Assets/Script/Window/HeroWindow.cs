@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Script.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ namespace Script.Window
     public class HeroWindow : MonoBehaviour
     {
         public Button closeBtn;
+        public Button tipsHeroBtn;
         public List<Button> heroBtnList;
 
         private void Awake()
@@ -21,11 +23,12 @@ namespace Script.Window
                     ShowHeroDesc(i1);
                 });
             }
+            tipsHeroBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<TipsWindow>(); });
         }
 
         private void ShowHeroDesc(int index)
         {
-            
+            WindowMgr.instance.ShowWindow<HeroDescWindow>().Show(index);
         }
     }
 }

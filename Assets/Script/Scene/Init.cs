@@ -22,7 +22,6 @@ namespace Script.Scene
                 if (clips[i].name=="Start")
                 {
                     animTime = clips[i].length;
-                    Debug.LogWarning(animTime);
                 }
             }
             startBtn.onClick.AddListener(() =>
