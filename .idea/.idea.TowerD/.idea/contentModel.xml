@@ -75,10 +75,12 @@
             <e p="Init.cs" t="Include" />
           </e>
           <e p="Window" t="Include">
+            <e p="DialogWindow.cs" t="Include" />
             <e p="HeroDescWindow.cs" t="Include" />
-            <e p="HeroListWindow.cs" t="Include" />
-            <e p="PlotDialogWindow.cs" t="Include" />
-            <e p="SelectPlotWindow.cs" t="Include" />
+            <e p="HeroWindow.cs" t="Include" />
+            <e p="LevelSelectWindow.cs" t="Include" />
+            <e p="PauseWindow.cs" t="Include" />
+            <e p="TipsWindow.cs" t="Include" />
           </e>
         </e>
       </e>

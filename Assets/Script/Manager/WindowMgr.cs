@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Script.Window;
 using UnityEngine;
 
 namespace Script.Manager
@@ -9,7 +10,13 @@ namespace Script.Manager
         public static WindowMgr instance;
         public Dictionary<Type,string>windowPath=new Dictionary<Type, string>()
         {
-            {typeof(MainMgr),"Window/MainMgr"}
+            {typeof(MainMgr),"Window/MainMgr"},
+            {typeof(TipsWindow),"Window/TipsWindow"},
+            {typeof(PauseWindow),"Window/PauseWindow"},
+            {typeof(LevelSelectWindow),"Window/LevelSelectWindow"},
+            {typeof(HeroWindow),"Window/HeroWindow"},
+            {typeof(HeroDescWindow),"Window/HeroDescWindow"},
+            {typeof(DialogWindow),"Window/DialogWindow"},
         };
 
         private void Awake()

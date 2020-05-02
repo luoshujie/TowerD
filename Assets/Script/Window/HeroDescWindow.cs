@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,14 +7,20 @@ namespace Script.Window
 {
     public class HeroDescWindow : MonoBehaviour
     {
-        public Text levelText;
-        public Text nameText;
-        public Image person;
-        public Text minNameText;
-        public Text occupationText;
-        public List<GameObject> starList;
-        public Slider lifeSlider;
-        public Slider defenseSlider;
-        public Slider attackSlider;
+        public Button closeBtn;
+        public Button closeAllBtn;
+        public Image herImg;
+        public List<Sprite> heroImgList;
+
+        private void Awake()
+        {
+            closeBtn.onClick.AddListener(()=>{});
+            closeAllBtn.onClick.AddListener(()=>{});
+        }
+
+        public void Show(int index)
+        {
+            herImg.sprite = heroImgList[index];
+        }
     }
 }
