@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f782b3260e415646b9f00968bbf9da1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22ba638b3af4a8646be49f5ffc8cd272, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -86,4 +86,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogImg: {fileID: 4648224098713525970}
-  dialogSpriteList: []
+  dialogSpriteList:
+  - {fileID: 21300000, guid: 22ba638b3af4a8646be49f5ffc8cd272, type: 3}
+  - {fileID: 21300000, guid: f00cd39dbd6f909409b166ed3f43bf11, type: 3}
+  - {fileID: 21300000, guid: d38baf08ede040940ab2fd5699601265, type: 3}
+  - {fileID: 21300000, guid: df39f89c289a47442a4bf23b32624050, type: 3}
+  - {fileID: 21300000, guid: 38155df278f700a469a89e7a7325bf55, type: 3}
+  - {fileID: 21300000, guid: a0d61cd2284cbeb45ac958340cafe667, type: 3}
+  - {fileID: 21300000, guid: 49d0e7802bc416c47a27dd5ebbb7efb1, type: 3}

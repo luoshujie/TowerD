@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Script.Manager;
+using Script.Window;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,8 +26,8 @@ namespace Script.Scene
 
         private void AddEvent()
         {
-            fightBtn.onClick.AddListener(()=>{});
-            heroBtn.onClick.AddListener(()=>{});
+            fightBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<LevelSelectWindow>();});
+            heroBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<HeroWindow>();});
             for (int i = 0; i < btnList.Count; i++)
             {
                 btnList[i].onClick.AddListener(BtnClick);
@@ -35,7 +36,7 @@ namespace Script.Scene
 
         private void BtnClick()
         {
-            Debug.LogWarning("开发中");
+            WindowMgr.instance.ShowWindow<TipsWindow>();
         }
     }
 }
