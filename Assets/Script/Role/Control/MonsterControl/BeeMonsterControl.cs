@@ -10,7 +10,7 @@ namespace Script.Role.Control.MonsterControl
     {
         private void Start()
         {
-            data=new MonsterData(1,"空中毒峰",15,100,8,0,1,StanceEnum.Lowland,1);
+            data=new MonsterData(1,"空中毒峰",15,100,8,0,1,StanceEnum.Highland,1);
         }
     }
 }

@@ -18,9 +18,9 @@ namespace Script.Role.Control.Hero
 
         public override void InitData()
         {
-            data = new HeroData(8, "艾米丽", AttackTargetEnum.Monster, 40, 20,
-                1, 30, 100, 2, OccupationEnum.Gunmen, StanceEnum.Highland);
-            attackStance = StanceEnum.None;
+            data = new HeroData(8, "刀可", AttackTargetEnum.Monster, 50, 20,
+                30, 30, 10, 2, OccupationEnum.Warrior, StanceEnum.Lowland);
+            attackStance = StanceEnum.Lowland;
         }
     }
 }
