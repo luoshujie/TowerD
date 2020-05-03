@@ -47,54 +47,54 @@ namespace Script.Config
                     new LevelMonsterData(0,1),
                 },new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
                 },new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(0,0,true),
-                    new LevelMonsterData(0,0,true),
-                    new LevelMonsterData(0,0,true),
-                    new LevelMonsterData(0,0,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
+                    new LevelMonsterData(0,3),
+                    new LevelMonsterData(0,3),
+                    new LevelMonsterData(0,3),
+                    new LevelMonsterData(0,3),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
                 },new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(0,1,true),
-                    new LevelMonsterData(0,1,true),
-                    new LevelMonsterData(0,1,true),
-                    new LevelMonsterData(0,1,true),
-                    new LevelMonsterData(0,1,true),
-                    new LevelMonsterData(0,1,true),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(0,4),
+                    new LevelMonsterData(0,4),
+                    new LevelMonsterData(0,4),
+                    new LevelMonsterData(0,4),
+                    new LevelMonsterData(0,4),
+                    new LevelMonsterData(0,4),
                 },new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(0,0,true),
-                    new LevelMonsterData(0,0,true),
-                    new LevelMonsterData(0,0,true),
-                    new LevelMonsterData(0,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(1,0,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
-                    new LevelMonsterData(2,1,true),
+                    new LevelMonsterData(0,3),
+                    new LevelMonsterData(0,3),
+                    new LevelMonsterData(0,3),
+                    new LevelMonsterData(0,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(1,3),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
+                    new LevelMonsterData(2,4),
                     
                 },new List<LevelMonsterData>()
                 {
@@ -121,11 +121,9 @@ namespace Script.Config
     {
         public int pathId;
         public int monsterId;
-        public bool hightLevel; 
 
-        public LevelMonsterData(int pathId, int monsterId,bool hightLevel=false)
+        public LevelMonsterData(int pathId, int monsterId)
         {
-            this.hightLevel = hightLevel;
             this.monsterId = monsterId;
             this.pathId = pathId;
         }

@@ -55,6 +55,8 @@
               <e p="MonsterControl" t="Include">
                 <e p="BeeMonsterControl.cs" t="Include" />
                 <e p="BossMonsterControl.cs" t="Include" />
+                <e p="HightBeeMonsterControl.cs" t="Include" />
+                <e p="HightSlimeMonsterControl.cs" t="Include" />
                 <e p="MonsterControl.cs" t="Include" />
                 <e p="SlimeMonsterControl.cs" t="Include" />
               </e>

@@ -3151,6 +3151,8 @@ MonoBehaviour:
   - {fileID: 175637442477181491, guid: 5c604fdff4853274db7840281af96f40, type: 3}
   - {fileID: 4798879665137387923, guid: 3609acd2ef3c152469e0266033e013a9, type: 3}
   - {fileID: 7719964612844976216, guid: 75c4ceeb1766d334a9183b78177d92e4, type: 3}
+  - {fileID: 8310044209341462215, guid: e9a7f99e1dca2aa4dbd49523b26e2451, type: 3}
+  - {fileID: 765265046621443990, guid: 50dc2b3a872c95641837e3011b8e89ee, type: 3}
   monsterContent: {fileID: 46204317}
   monsterPathList:
   - id: 0
