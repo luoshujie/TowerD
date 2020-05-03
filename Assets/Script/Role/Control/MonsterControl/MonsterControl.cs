@@ -174,8 +174,7 @@ namespace Script.Role.Control.MonsterControl
         public override void Die()
         {
             FightMgr.instance.MonsterDie(gameObject);
-            gameObject.SetActive(false);
-            Debug.LogWarning("die");
+            Destroy(gameObject);
         }
 
         private void OnTriggerStay2D(Collider2D other)

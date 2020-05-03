@@ -5,6 +5,7 @@ using DG.Tweening;
 using Script.Role.Data;
 using Script.Role.Skill;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Script.Role.Control.Hero
 {
@@ -130,6 +131,11 @@ namespace Script.Role.Control.Hero
 
         public override void Hurt(int value)
         {
+            value -= data.Defense;
+            if (value<=0)
+            {
+                value = Random.Range(1, 5);
+            }
             LifeChange(-value);
         }
 
