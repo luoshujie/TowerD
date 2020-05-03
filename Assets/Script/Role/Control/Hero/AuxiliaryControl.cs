@@ -5,7 +5,7 @@ namespace Script.Role.Control.Hero
 {
     public class AuxiliaryControl : HeroControl
     {
-        private Vector3 pos = new Vector3(-0.13f, 1.45f, 0);
+        private Vector3 pos = new Vector3(-0.12f, 1.36f, 0);
 
         public override void InitSkill()
         {

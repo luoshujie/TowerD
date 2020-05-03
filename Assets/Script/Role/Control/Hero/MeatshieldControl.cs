@@ -5,7 +5,7 @@ namespace Script.Role.Control.Hero
 {
     public class MeatshieldControl : HeroControl
     {
-        private Vector3 pos=new Vector3(-0.52f,1.32f,0);
+        private Vector3 pos=new Vector3(-0.533f,1.226f,0);
         public override void SetPos()
         {
             transform.localPosition = pos;
