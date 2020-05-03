@@ -203,7 +203,6 @@ namespace Script.Role.Control.Hero
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            Debug.LogWarning(other.name);
             if (attackStance == StanceEnum.None)
             {
                 if (targetControl != null && targetControl.data.Stance != StanceEnum.Highland)
