@@ -21,12 +21,23 @@ namespace Script
         public Button pauseBtn;
         public Button addSpeedBtn;
         public Button startFightBtn;
-        public Button retreatBtn;
+        public Toggle retreatToggle;
         
         private void Awake()
         {
             instance = this;
             pauseBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<PauseWindow>();});
+            retreatToggle.onValueChanged.AddListener(Retreat);
+            startFightBtn.onClick.AddListener(() =>
+            {
+                FightMgr.instance.InstantiateMonster();
+                startFightBtn.gameObject.SetActive(false);
+            });
+        }
+
+        private void Retreat(bool state)
+        {
+            FightMgr.instance.Retreat(state);
         }
 
         private void FixedUpdate()

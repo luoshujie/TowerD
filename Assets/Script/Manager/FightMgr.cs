@@ -50,6 +50,15 @@ namespace Script.Manager
             instance = this;
         }
 
+        public void Retreat(bool state)
+        {
+            for (int i = 0; i < platformItemList.Count; i++)
+            {
+                platformItemList[i].Retreat(state);
+            }
+            
+        }
+
         private void Start()
         {
             WindowMgr.instance.ShowWindow<DialogWindow>(false).Init(0,5,()=>{});
@@ -59,7 +68,6 @@ namespace Script.Manager
             Game.instance.DisplayNum(monsterSpawnIndex+1,_levelData.monsterIdList.Count);
             Game.instance.ShowCrystalCnt();
             Game.instance.DisplayCoin();
-            InstantiateMonster();
         }
 
         public void RedueCrystal()

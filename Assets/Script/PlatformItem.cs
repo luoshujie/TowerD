@@ -11,6 +11,8 @@ namespace Script
         public GameObject hero;
         public StanceEnum stance;
 
+        private HeroControl _heroControl;
+
         public GameObject highlightSprite;
         public bool CheckoutHero()
         {
@@ -21,7 +23,8 @@ namespace Script
         {
             hero = Instantiate(heroModel, transform);
             
-            hero.GetComponent<HeroControl>().SetPos();
+            _heroControl=hero.GetComponent<HeroControl>();
+            _heroControl.SetPos();
             hero.SetActive(true);
         }
 
@@ -29,6 +32,16 @@ namespace Script
         {
             Destroy(hero);
             hero = null;
+            _heroControl = null;
+        }
+
+        public void Retreat(bool state)
+        {
+            if (_heroControl==null)
+            {
+                return;
+            }
+            _heroControl.natureUi.ShowCancelBtn(state);
         }
 
         public void ShowHighlight()

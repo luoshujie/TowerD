@@ -57,11 +57,6 @@ namespace Script.Role.Control.Hero
             
         }
 
-        private void SendMessage()
-        {
-            natureUi.ShowCancelBtn();
-        }
-
         public float GetAnimTime(string animName)
         {
             for (int i = 0; i < animList.Length; i++)
@@ -77,6 +72,17 @@ namespace Script.Role.Control.Hero
 
         private void FixedUpdate()
         {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                if (targetControl!=null)
+                {
+                    Debug.LogWarning(targetControl.data.Alive);
+                }
+                else
+                {
+                    Debug.LogWarning("null");
+                }
+            }
             if (animState)
             {
                 return;
@@ -197,6 +203,7 @@ namespace Script.Role.Control.Hero
 
         private void OnTriggerStay2D(Collider2D other)
         {
+            Debug.LogWarning(other.name);
             if (attackStance == StanceEnum.None)
             {
                 if (targetControl != null && targetControl.data.Stance != StanceEnum.Highland)
@@ -216,6 +223,7 @@ namespace Script.Role.Control.Hero
                     }
                 }
             }
+            
 
             if (targetControl == null)
             {

@@ -119,7 +119,7 @@ namespace Script.Role.Control.MonsterControl
 
         public void OnMoveForTarget()
         {
-            if (Vector3.Distance(transform.position, nextPos) > 1)
+            if (Vector3.Distance(transform.position, nextPos) > 0.2f)
             {
                 if (nextPos.x<transform.position.x)
                 {

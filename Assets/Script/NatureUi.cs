@@ -10,7 +10,6 @@ namespace Script
         public Slider lifeSlider;
         public Button skillBtn;
         public Image skillProgressImg;
-        public Image skillImg;
         public Button cancelBtn;
         private HeroData data;
 
@@ -49,14 +48,12 @@ namespace Script
             {
                 skillBtn.interactable = false;
             }
-            {
-                
-            }
+            
         }
 
-        public void ShowCancelBtn()
+        public void ShowCancelBtn(bool state)
         {
-            cancelBtn.gameObject.SetActive(!cancelBtn.gameObject.activeSelf);
+            cancelBtn.gameObject.SetActive(state);
         }
     }
 }
