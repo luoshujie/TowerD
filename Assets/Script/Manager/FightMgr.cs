@@ -70,6 +70,28 @@ namespace Script.Manager
             Game.instance.DisplayCoin();
         }
 
+        public List<HeroControl> GetOnDistanceHero(Vector3 pos, float distance)
+        {
+            List<HeroControl>heroControls=new List<HeroControl>();
+            for (int i = 0; i < platformItemList.Count; i++)
+            {
+                if (!platformItemList[i].CheckoutHero())
+                {
+                    continue;
+                }
+
+                if (Vector3.Distance(pos,platformItemList[i].transform.position)<distance)
+                {
+                    if (platformItemList[i].heroControl.data.Alive)
+                    {
+                        heroControls.Add(platformItemList[i].heroControl);
+                    }
+                }
+            }
+
+            return heroControls;
+        }
+        
         public HeroControl GetHeroTarget(Vector3 pos, float distance,StanceEnum stanceEnum)
         {
             for (int i = 0; i < platformItemList.Count; i++)

@@ -73,17 +73,6 @@ namespace Script.Role.Control.Hero
 
         private void FixedUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                if (targetControl!=null)
-                {
-                    Debug.LogWarning(targetControl.data.Alive);
-                }
-                else
-                {
-                    Debug.LogWarning("null");
-                }
-            }
             if (animState)
             {
                 return;
@@ -104,6 +93,11 @@ namespace Script.Role.Control.Hero
                 data.CurrentAttackInterval -= Time.fixedDeltaTime;
             }
 
+            CheckoutState();
+        }
+
+        public virtual void CheckoutState()
+        {
             if (targetControl==null)
             {
                 targetControl =
