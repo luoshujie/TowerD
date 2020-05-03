@@ -19,7 +19,7 @@ namespace Script.Role.Control.Hero
         public override void InitData()
         {
             data = new HeroData(7, "安", AttackTargetEnum.Player, 30, 20,
-                2, 10, 90, 2, OccupationEnum.Auxiliary, StanceEnum.Highland);
+                2, 10, 3, 2, OccupationEnum.Auxiliary, StanceEnum.Highland);
             attackStance = StanceEnum.None;
         }
     }

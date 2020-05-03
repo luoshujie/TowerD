@@ -7,10 +7,10 @@ using UnityEngine;
 namespace Script.Role.Control.MonsterControl
 {
     public class BeeMonsterControl : MonsterControl
-    {
-        private void Start()
-        {
-            data=new MonsterData(1,"空中毒峰",15,100,16,0,1,StanceEnum.Highland,1);
-        }
+             {
+                 private void Start()
+                 {
+                     data=new MonsterData(1,"空中毒峰",15,2,16,0,1,StanceEnum.Highland,1);
+                 }
     }
 }

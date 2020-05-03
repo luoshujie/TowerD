@@ -11,20 +11,20 @@ namespace Script
         public GameObject hero;
         public StanceEnum stance;
 
-        private HeroControl _heroControl;
+        public HeroControl heroControl;
 
         public GameObject highlightSprite;
         public bool CheckoutHero()
         {
-            return hero == null;
+            return hero != null;
         }
 
         public void InstantiateHero(GameObject heroModel)
         {
             hero = Instantiate(heroModel, transform);
             
-            _heroControl=hero.GetComponent<HeroControl>();
-            _heroControl.SetPos();
+            heroControl=hero.GetComponent<HeroControl>();
+            heroControl.SetPos();
             hero.SetActive(true);
         }
 
@@ -32,16 +32,16 @@ namespace Script
         {
             Destroy(hero);
             hero = null;
-            _heroControl = null;
+            heroControl = null;
         }
 
         public void Retreat(bool state)
         {
-            if (_heroControl==null)
+            if (heroControl==null)
             {
                 return;
             }
-            _heroControl.natureUi.ShowCancelBtn(state);
+            heroControl.natureUi.ShowCancelBtn(state);
         }
 
         public void ShowHighlight()

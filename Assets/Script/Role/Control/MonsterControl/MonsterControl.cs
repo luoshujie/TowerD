@@ -79,6 +79,7 @@ namespace Script.Role.Control.MonsterControl
 
             if (targetControl == null)
             {
+                targetControl = FightMgr.instance.GetHeroTarget(transform.position, data.AttackDistance, data.Stance);
                 OnMoveForTarget();
             }
             else
@@ -99,8 +100,8 @@ namespace Script.Role.Control.MonsterControl
             {
                 if (data.CurrentAttackInterval <= 0)
                 {
+                    Debug.Log("怪物：攻击");
                     //攻击
-                    
                     Damage();
                     data.CurrentAttackInterval = data.AttackInterval;
                 }
@@ -146,7 +147,7 @@ namespace Script.Role.Control.MonsterControl
                 {
                     Debug.LogWarning("到达目的地");
                     FightMgr.instance.RedueCrystal();
-                    FightMgr.instance.MonsterDie(gameObject,true);
+                    FightMgr.instance.MonsterDie(this,true);
                     Destroy(gameObject);
                 }
             }
@@ -173,23 +174,23 @@ namespace Script.Role.Control.MonsterControl
 
         public override void Die()
         {
-            FightMgr.instance.MonsterDie(gameObject);
+            FightMgr.instance.MonsterDie(this);
             Destroy(gameObject);
         }
 
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (targetControl == null)
-            {
-                if (other.CompareTag("Hero"))
-                {
-                    HeroControl control = other.transform.parent.GetComponent<HeroControl>();
-                    if (control.data.Alive && control.data.Stance == data.Stance)
-                    {
-                        targetControl = control;
-                    }
-                }
-            }
-        }
+//        private void OnTriggerStay2D(Collider2D other)
+//        {
+//            if (targetControl == null)
+//            {
+//                if (other.CompareTag("Hero"))
+//                {
+//                    HeroControl control = other.transform.parent.GetComponent<HeroControl>();
+//                    if (control.data.Alive && control.data.Stance == data.Stance)
+//                    {
+//                        targetControl = control;
+//                    }
+//                }
+//            }
+//        }
     }
 }

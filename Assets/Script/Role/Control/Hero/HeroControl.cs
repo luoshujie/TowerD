@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using DG.Tweening;
+using Script.Manager;
 using Script.Role.Data;
 using Script.Role.Skill;
 using UnityEngine;
@@ -103,6 +104,11 @@ namespace Script.Role.Control.Hero
                 data.CurrentAttackInterval -= Time.fixedDeltaTime;
             }
 
+            if (targetControl==null)
+            {
+                targetControl =
+                    FightMgr.instance.GetMonsterTarget(transform.position, data.AttackDistance, attackStance);
+            }
             if (targetControl != null && data.CurrentAttackInterval <= 0)
             {
                 Attack();
@@ -193,6 +199,7 @@ namespace Script.Role.Control.Hero
 
         public override void Damage()
         {
+            Debug.Log("英雄：攻击");
             //播放动作
             //延时造成伤害
             anim.Play("Attack");
@@ -201,49 +208,49 @@ namespace Script.Role.Control.Hero
             DOTween.Sequence().InsertCallback(0.2f, () => { targetControl.Hurt(data.Attack); });
         }
 
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (attackStance == StanceEnum.None)
-            {
-                if (targetControl != null && targetControl.data.Stance != StanceEnum.Highland)
-                {
-                    if (other.CompareTag("Monster"))
-                    {
-                        MonsterControl.MonsterControl control =
-                            other.transform.parent.GetComponent<MonsterControl.MonsterControl>();
-
-                        if (attackStance == StanceEnum.Highland)
-                        {
-                            if (control.data.Alive)
-                            {
-                                targetControl = control;
-                            }
-                        }
-                    }
-                }
-            }
-            
-
-            if (targetControl == null)
-            {
-                if (other.CompareTag("Monster"))
-                {
-                    MonsterControl.MonsterControl control =
-                        other.transform.parent.GetComponent<MonsterControl.MonsterControl>();
-
-                    if (attackStance == StanceEnum.None)
-                    {
-                        if (control.data.Alive)
-                        {
-                            targetControl = control;
-                        }
-                    }
-                    else if (control.data.Alive && control.data.Stance == attackStance)
-                    {
-                        targetControl = control;
-                    }
-                }
-            }
-        }
+//        private void OnTriggerStay2D(Collider2D other)
+//        {
+//            if (attackStance == StanceEnum.None)
+//            {
+//                if (targetControl != null && targetControl.data.Stance != StanceEnum.Highland)
+//                {
+//                    if (other.CompareTag("Monster"))
+//                    {
+//                        MonsterControl.MonsterControl control =
+//                            other.transform.parent.GetComponent<MonsterControl.MonsterControl>();
+//
+//                        if (attackStance == StanceEnum.Highland)
+//                        {
+//                            if (control.data.Alive)
+//                            {
+//                                targetControl = control;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            
+//
+//            if (targetControl == null)
+//            {
+//                if (other.CompareTag("Monster"))
+//                {
+//                    MonsterControl.MonsterControl control =
+//                        other.transform.parent.GetComponent<MonsterControl.MonsterControl>();
+//
+//                    if (attackStance == StanceEnum.None)
+//                    {
+//                        if (control.data.Alive)
+//                        {
+//                            targetControl = control;
+//                        }
+//                    }
+//                    else if (control.data.Alive && control.data.Stance == attackStance)
+//                    {
+//                        targetControl = control;
+//                    }
+//                }
+//            }
+//        }
     }
 }

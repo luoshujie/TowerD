@@ -369,7 +369,7 @@ RectTransform:
   - {fileID: 274520447104408024}
   - {fileID: 536432972704752702}
   m_Father: {fileID: 8760116905222158039}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -620,10 +620,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8760116905222158039}
   - component: {fileID: 8760116905222158038}
-  - component: {fileID: 8760116905222158036}
   - component: {fileID: 2946885405867155014}
   - component: {fileID: 4923339969734151321}
-  - component: {fileID: 50040637093191304}
   m_Layer: 0
   m_Name: Meatshield
   m_TagString: Untagged
@@ -642,7 +640,6 @@ Transform:
   m_LocalPosition: {x: 2.13, y: 1.139065, z: 10}
   m_LocalScale: {x: 0.6645053, y: 0.6645053, z: 0.6645053}
   m_Children:
-  - {fileID: 8760116905986047767}
   - {fileID: 2384485760035231984}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -695,22 +692,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8760116905222158036
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760116905222158024}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3.7
 --- !u!95 &2946885405867155014
 Animator:
   serializedVersion: 3
@@ -743,97 +724,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   natureUi: {fileID: 432402024376538907}
---- !u!50 &50040637093191304
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760116905222158024}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!1 &8760116905986047752
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8760116905986047767}
-  - component: {fileID: 8760116905986047766}
-  - component: {fileID: 425814678153080936}
-  m_Layer: 9
-  m_Name: Collider
-  m_TagString: Hero
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8760116905986047767
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760116905986047752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.69, y: 0, z: -0.21}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8760116905222158039}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &8760116905986047766
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760116905986047752}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.030394912, y: -0.030395031}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.7294819, y: 3.9141293}
-  m_EdgeRadius: 0
---- !u!114 &425814678153080936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760116905986047752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362f7bf8c36faeb488447b730f8332ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9176545925434995022
 GameObject:
   m_ObjectHideFlags: 0

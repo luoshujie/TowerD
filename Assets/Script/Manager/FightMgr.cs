@@ -32,7 +32,7 @@ namespace Script.Manager
 
         public List<PathData> monsterPathList;
         
-        private IList<GameObject>sceneMonsterList=new List<GameObject>();
+        private IList<MonsterControl>sceneMonsterList=new List<MonsterControl>();
 
         private LevelData _levelData;
         private int monsterSpawnIndex;
@@ -70,6 +70,51 @@ namespace Script.Manager
             Game.instance.DisplayCoin();
         }
 
+        public HeroControl GetHeroTarget(Vector3 pos, float distance,StanceEnum stanceEnum)
+        {
+            for (int i = 0; i < platformItemList.Count; i++)
+            {
+                if (platformItemList[i].stance!=stanceEnum)
+                {
+                    continue;
+                }
+                if (platformItemList[i].CheckoutHero())
+                {
+                    if (Vector3.Distance(pos,platformItemList[i].transform.position)<distance)
+                    {
+                        if (platformItemList[i].heroControl.data.Alive)
+                        {
+                            return platformItemList[i].heroControl;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+        public MonsterControl GetMonsterTarget(Vector3 pos,float distance,StanceEnum stanceEnum)
+        {
+            if (sceneMonsterList.Count<=0)
+            {
+                return null;
+            }
+            for (int i = 0; i < sceneMonsterList.Count; i++)
+            {
+                if (Vector3.Distance(pos,sceneMonsterList[i].transform.position)<distance)
+                {
+                    if (stanceEnum==StanceEnum.None||stanceEnum==sceneMonsterList[i].data.Stance)
+                    {
+                        if (sceneMonsterList[i].data.Alive)
+                        {
+                            return sceneMonsterList[i];
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
         public void RedueCrystal()
         {
             crystalCnt--;
@@ -95,9 +140,10 @@ namespace Script.Manager
             for (int i = 0; i < levelMonsterData.Count; i++)
             {
                 GameObject monster=Instantiate(monsterList[levelMonsterData[i].monsterId],monsterContent);
-                monster.GetComponent<MonsterControl>().InitPath( monsterPathList[levelMonsterData[i].pathId].pathList);
+                MonsterControl monsterControl=monster.GetComponent<MonsterControl>();
+                monsterControl.InitPath(monsterPathList[levelMonsterData[i].pathId].pathList);
                 monster.SetActive(true);
-                sceneMonsterList.Add(monster);
+                sceneMonsterList.Add(monsterControl);
                 yield return waitForSeconds;
             }
 
@@ -116,7 +162,7 @@ namespace Script.Manager
             }
         }
 
-        public void MonsterDie(GameObject monster,bool alive=false)
+        public void MonsterDie(MonsterControl monster,bool alive=false)
         {
             if (!alive)
             {
