@@ -1,4 +1,5 @@
 ﻿using Script.Role.Data;
+using Script.Role.Skill;
 using UnityEngine;
 
 namespace Script.Role.Control.Hero
@@ -9,6 +10,7 @@ namespace Script.Role.Control.Hero
 
         public override void InitSkill()
         {
+            skill = new AddAttackSkill(data, 10, 5);
         }
 
         public override void SetPos()

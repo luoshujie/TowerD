@@ -15,7 +15,7 @@ namespace Script.Role.Control.MonsterControl
         private Vector3 nextPos;
         public new MonsterData data;
         protected HeroControl targetControl;
-        protected SpriteRenderer renderer;
+        private SpriteRenderer renderer;
 
         private void Awake()
         {
@@ -115,12 +115,12 @@ namespace Script.Role.Control.MonsterControl
             anim.Play("Attack");
             animState = true;
             Invoke(nameof(InvokeChangeState),GetAnimTime("Attack"));
-            DOTween.Sequence().InsertCallback(0.2f, () => { targetControl.Hurt(data.Attack); });
+            DOTween.Sequence().InsertCallback(0.4f, () => { targetControl.Hurt(data.Attack); });
         }
 
         public void OnMoveForTarget()
         {
-            if (Vector3.Distance(transform.position, nextPos) > 0.2f)
+            if (Vector3.Distance(transform.position, nextPos) > 0.1f)
             {
                 if (nextPos.x<transform.position.x)
                 {

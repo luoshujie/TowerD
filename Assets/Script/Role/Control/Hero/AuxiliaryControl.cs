@@ -2,6 +2,7 @@
 using DG.Tweening;
 using Script.Manager;
 using Script.Role.Data;
+using Script.Role.Skill;
 using UnityEngine;
 
 namespace Script.Role.Control.Hero
@@ -12,6 +13,7 @@ namespace Script.Role.Control.Hero
 
         public override void InitSkill()
         {
+            skill=new AddLifeSkill(transform,5,10);
         }
 
         public override void SetPos()
@@ -68,7 +70,7 @@ namespace Script.Role.Control.Hero
             anim.Play("Attack");
             animState = true;
             Invoke(nameof(InvokeChangeState), GetAnimTime("Attack"));
-            DOTween.Sequence().InsertCallback(0.2f, () =>
+            DOTween.Sequence().InsertCallback(0.4f, () =>
             {
                 for (int i = 0; i < distanceHeroList.Count; i++)
                 {

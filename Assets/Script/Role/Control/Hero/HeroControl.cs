@@ -131,7 +131,7 @@ namespace Script.Role.Control.Hero
             {
                 data.Energy = 0;
                 Debug.LogWarning("使用技能");
-                //skill.UseSkill(data);
+                skill.UseSkill();
             }
         }
 
@@ -199,52 +199,7 @@ namespace Script.Role.Control.Hero
             anim.Play("Attack");
             animState = true;
             Invoke(nameof(InvokeChangeState), GetAnimTime("Attack"));
-            DOTween.Sequence().InsertCallback(0.2f, () => { targetControl.Hurt(data.Attack); });
+            DOTween.Sequence().InsertCallback(0.4f, () => { targetControl.Hurt(data.Attack); });
         }
-
-//        private void OnTriggerStay2D(Collider2D other)
-//        {
-//            if (attackStance == StanceEnum.None)
-//            {
-//                if (targetControl != null && targetControl.data.Stance != StanceEnum.Highland)
-//                {
-//                    if (other.CompareTag("Monster"))
-//                    {
-//                        MonsterControl.MonsterControl control =
-//                            other.transform.parent.GetComponent<MonsterControl.MonsterControl>();
-//
-//                        if (attackStance == StanceEnum.Highland)
-//                        {
-//                            if (control.data.Alive)
-//                            {
-//                                targetControl = control;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//            
-//
-//            if (targetControl == null)
-//            {
-//                if (other.CompareTag("Monster"))
-//                {
-//                    MonsterControl.MonsterControl control =
-//                        other.transform.parent.GetComponent<MonsterControl.MonsterControl>();
-//
-//                    if (attackStance == StanceEnum.None)
-//                    {
-//                        if (control.data.Alive)
-//                        {
-//                            targetControl = control;
-//                        }
-//                    }
-//                    else if (control.data.Alive && control.data.Stance == attackStance)
-//                    {
-//                        targetControl = control;
-//                    }
-//                }
-//            }
-//        }
     }
 }

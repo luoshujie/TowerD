@@ -4,6 +4,6 @@ namespace Script.Role.Skill
 {
     public interface ISkillInterface
     {
-        void UseSkill(HeroData data);
+        void UseSkill();
     }
 }
