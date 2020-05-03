@@ -46,9 +46,11 @@
             <e p="Control" t="Include">
               <e p="BaseControl.cs" t="Include" />
               <e p="Hero" t="Include">
+                <e p="AuxiliaryControl.cs" t="Include" />
                 <e p="GunmenControl.cs" t="Include" />
                 <e p="HeroControl.cs" t="Include" />
                 <e p="MeatshieldControl.cs" t="Include" />
+                <e p="WarriorControl.cs" t="Include" />
               </e>
               <e p="MonsterControl" t="Include">
                 <e p="BeeMonsterControl.cs" t="Include" />

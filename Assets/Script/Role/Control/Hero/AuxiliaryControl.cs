@@ -1,18 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Script.Role.Data;
 using UnityEngine;
 
-public class AuxiliaryControl : MonoBehaviour
+namespace Script.Role.Control.Hero
 {
-    // Start is called before the first frame update
-    void Start()
+    public class AuxiliaryControl : HeroControl
     {
-        
-    }
+        private Vector3 pos = new Vector3(-0.13f, 1.45f, 0);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void InitSkill()
+        {
+        }
+
+        public override void SetPos()
+        {
+            transform.localPosition = pos;
+        }
+
+        public override void InitData()
+        {
+            data = new HeroData(7, "艾米丽", AttackTargetEnum.Monster, 40, 20,
+                1, 30, 100, 2, OccupationEnum.Gunmen, StanceEnum.Highland);
+            attackStance = StanceEnum.None;
+        }
     }
 }

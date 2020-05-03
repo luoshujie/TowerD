@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 211115432}
   - component: {fileID: 211115433}
   m_Layer: 0
-  m_Name: GunmenSprite (3)
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -913,7 +913,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 612915212ed844642944d403bebe4e1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b293b7dd4a100354bb05c31234d2b2ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1496,7 +1496,7 @@ GameObject:
   - component: {fileID: 499644770}
   - component: {fileID: 499644769}
   m_Layer: 0
-  m_Name: GunmenSprite
+  m_Name: Gunmen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2191,7 +2191,12 @@ PrefabInstance:
     - target: {fileID: 6071248330862791628, guid: 26c15262d9962de47925cfc28936938a,
         type: 3}
       propertyPath: stanceEnum
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071248330862791628, guid: 26c15262d9962de47925cfc28936938a,
+        type: 3}
+      propertyPath: heroModelId
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6071248331171548609, guid: 26c15262d9962de47925cfc28936938a,
         type: 3}
@@ -2247,7 +2252,7 @@ GameObject:
   - component: {fileID: 856886200}
   - component: {fileID: 856886201}
   m_Layer: 0
-  m_Name: GunmenSprite (2)
+  m_Name: Auxiliary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2304,7 +2309,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 612915212ed844642944d403bebe4e1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cfb6fd0b7dd245c458ac7d11de93cdbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2899,12 +2904,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b10a9fb1a2bb6324a894d326942e96c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4af19bc228da224d8a3a0cb9d0dbdb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 19.2, y: 10.8}
+  m_Size: {x: 35.079998, y: 19.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3061,85 +3066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257591bde82046744bd13cbdf501c7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1336448021
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1336448022}
-  - component: {fileID: 1336448023}
-  m_Layer: 0
-  m_Name: GunmenSprite (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1336448022
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336448021}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6235, y: -0.6284, z: 0}
-  m_LocalScale: {x: 0.40053093, y: 0.39397353, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1344643252}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1336448023
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336448021}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 612915212ed844642944d403bebe4e1a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.46, y: 4.28}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1344643250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,9 +3111,13 @@ MonoBehaviour:
   heroModelList:
   - {fileID: 8969732126530639811, guid: f695576f189735c4caba9cd044429364, type: 3}
   - {fileID: 8760116905222158024, guid: 323987ee5ea3e2e4ebe032e82a88c5b3, type: 3}
+  - {fileID: 8448361066399544871, guid: 3729dad1e46f0684182af71cfc7b0645, type: 3}
+  - {fileID: 5927302534167809211, guid: a8c15cedc09a8b44ba3777fa61d497c1, type: 3}
   heroSpriteList:
   - {fileID: 499644768}
   - {fileID: 1735635802}
+  - {fileID: 856886199}
+  - {fileID: 211115431}
   monsterList:
   - {fileID: 175637442477181491, guid: 5c604fdff4853274db7840281af96f40, type: 3}
   - {fileID: 4798879665137387923, guid: 3609acd2ef3c152469e0266033e013a9, type: 3}
@@ -3235,7 +3165,6 @@ Transform:
   - {fileID: 1735635803}
   - {fileID: 856886200}
   - {fileID: 211115432}
-  - {fileID: 1336448022}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4022,6 +3951,11 @@ PrefabInstance:
         type: 3}
       propertyPath: stanceEnum
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071248330862791628, guid: 26c15262d9962de47925cfc28936938a,
+        type: 3}
+      propertyPath: heroModelId
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6071248331171548609, guid: 26c15262d9962de47925cfc28936938a,
         type: 3}
