@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Script.Config;
 using Script.Role.Control.Hero;
 using Script.Role.Control.MonsterControl;
@@ -35,6 +36,9 @@ namespace Script.Manager
 
         private LevelData _levelData;
         private int monsterSpawnIndex;
+
+        public int crystalCnt = 10;
+        public int coin=1000;   
         
         private void Awake()
         {
@@ -52,7 +56,21 @@ namespace Script.Manager
             MainMgr.instance.PlayBackGroupAudio(2);
             _levelData = LevelConfig.GetLevelData(1);
             monsterSpawnIndex = 0;
+            Game.instance.DisplayNum(monsterSpawnIndex+1,_levelData.monsterIdList.Count);
+            Game.instance.ShowCrystalCnt();
+            Game.instance.DisplayCoin();
             InstantiateMonster();
+        }
+
+        public void RedueCrystal()
+        {
+            crystalCnt--;
+            Game.instance.ShowCrystalCnt();
+            if (crystalCnt<=0)
+            {
+                //游戏结束
+                WindowMgr.instance.ShowWindow<GameEndWindow>().Init(false);
+            }
         }
         
 
@@ -64,6 +82,7 @@ namespace Script.Manager
         private WaitForSeconds waitForSeconds=new WaitForSeconds(2);
         IEnumerator SpawnMonster()
         {
+            Game.instance.DisplayNum(monsterSpawnIndex+1,_levelData.monsterIdList.Count);
             List<LevelMonsterData> levelMonsterData = _levelData.monsterIdList[monsterSpawnIndex];
             for (int i = 0; i < levelMonsterData.Count; i++)
             {
@@ -89,19 +108,28 @@ namespace Script.Manager
             }
         }
 
-        public void MonsterDie(GameObject monster)
+        public void MonsterDie(GameObject monster,bool alive=false)
         {
+            if (!alive)
+            {
+                CoinChange(100);
+            }
             sceneMonsterList.Remove(monster);
             if (sceneMonsterList.Count<=0)
             {
                 //下一波
                 if (monsterSpawnIndex<_levelData.monsterIdList.Count)
                 {
+                    CoinChange(300);
                     Invoke(nameof(InstantiateMonster),5);
                 }
                 else
                 {
                     //打完了
+                    if (monsterSpawnIndex>=_levelData.monsterIdList.Count)
+                    {
+                        WindowMgr.instance.ShowWindow<GameEndWindow>().Init(true);
+                    }
                 }
             }
         }
@@ -129,13 +157,25 @@ namespace Script.Manager
             }
         }
 
+
+        private void CoinChange(int value)
+        {
+            coin += value;
+            Game.instance.DisplayCoin();
+        }
         public void CloseHighlight(int heroId, StanceEnum stanceEnum)
         {
+            
             for (int i = 0; i < platformItemList.Count; i++)
             {
                 platformItemList[i].CloseHighlight();
             }
 
+            int price = HeroConfig.GetHeroPrice(heroId);
+            if (coin<price)
+            {
+                return;
+            }
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos.z = 10;
 
@@ -145,7 +185,9 @@ namespace Script.Manager
                 {
                     if (Vector3.Distance(platformItemList[i].transform.position, pos) < 1)
                     {
+                        
                         platformItemList[i].InstantiateHero(GetHeroPrefab(heroId));
+                        CoinChange(-price);
                     }
                 }
             }

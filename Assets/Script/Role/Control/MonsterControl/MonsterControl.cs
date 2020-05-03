@@ -145,7 +145,8 @@ namespace Script.Role.Control.MonsterControl
                 else
                 {
                     Debug.LogWarning("到达目的地");
-                    FightMgr.instance.MonsterDie(gameObject);
+                    FightMgr.instance.RedueCrystal();
+                    FightMgr.instance.MonsterDie(gameObject,true);
                     Destroy(gameObject);
                 }
             }

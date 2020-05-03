@@ -1,4 +1,5 @@
 ﻿using System;
+using Script.Config;
 using Script.Role.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,12 +11,13 @@ namespace Script.Item
     {
         public int heroModelId;
         public Text priceText;
-        public int price;
+        private int price;
         public GameObject selectTips;
         public StanceEnum stanceEnum;
 
         private void Start()
         {
+            price = HeroConfig.GetHeroPrice(heroModelId);
             priceText.text = price.ToString();
         }
 

@@ -19,15 +19,18 @@ namespace Script.Window
         {
             continueBtn.onClick.AddListener(() =>
             {
+                Time.timeScale = 1;
                 MainMgr.instance.PlayOpenWindowAudio();
                 Destroy(gameObject);
             });
             audioBtn.onClick.AddListener(SetAudio);
             quitBtn.onClick.AddListener(() =>
             {
+                Time.timeScale = 1;
                 SceneManager.LoadScene("Home");
                 Destroy(gameObject);
             });
+            Time.timeScale = 0;
         }
 
         private void Start()

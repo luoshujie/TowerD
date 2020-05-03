@@ -43,7 +43,21 @@ namespace Script
                 
             }
         }
-        
+
+        public void DisplayNum(int now, int all)
+        {
+            numText.text = now.ToString() + "/" + all;
+        }
+
+        public void DisplayCoin()
+        {
+            coinText.text = FightMgr.instance.coin.ToString();
+        }
+
+        public void ShowCrystalCnt()
+        {
+            crystalCntText.text = FightMgr.instance.crystalCnt.ToString();
+        }
 
         public void Move(bool state, int heroId,StanceEnum stanceEnum)
         {

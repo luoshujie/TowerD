@@ -2509,7 +2509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 55.05005}
+  m_AnchoredPosition: {x: -66, y: 55.05005}
   m_SizeDelta: {x: 0, y: 110.100006}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1013118986
@@ -3146,6 +3146,8 @@ MonoBehaviour:
     - {fileID: 47062116}
     - {fileID: 244764554}
     - {fileID: 701731578}
+  crystalCnt: 10
+  coin: 1000
 --- !u!4 &1344643252
 Transform:
   m_ObjectHideFlags: 0

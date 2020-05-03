@@ -6,12 +6,25 @@ namespace Script.Config
     {
         private static readonly Dictionary<int,int>HeroPriceDic=new Dictionary<int, int>()
         {
-            {0,100},
-            {1,1000},
-            {2,1000},
-            {3,1000},
-            {4,1000},
+            {0,600},
+            {1,400},
+            {2,300},
+            {3,500},
         };
+        private static Dictionary<int ,int>monsterPriceDic=new Dictionary<int, int>()
+        {
+            
+        };
+
+        private static int GetMonsterPrice(int id)
+        {
+            if (monsterPriceDic.ContainsKey(id))
+            {
+                return monsterPriceDic[id];
+            }
+
+            return 1000;
+        }
 
         public static int GetHeroPrice(int id)
         {
