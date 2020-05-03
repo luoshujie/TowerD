@@ -2429,7 +2429,7 @@ PrefabInstance:
     - target: {fileID: 7125594517175902982, guid: d72aa35801ea427469d0c6172f94011a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7125594517175902982, guid: d72aa35801ea427469d0c6172f94011a,
         type: 3}
@@ -2445,11 +2445,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7125594517175902983, guid: d72aa35801ea427469d0c6172f94011a,
-        type: 3}
-      propertyPath: stance
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72aa35801ea427469d0c6172f94011a, type: 3}
@@ -2904,7 +2899,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d4af19bc228da224d8a3a0cb9d0dbdb3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b10a9fb1a2bb6324a894d326942e96c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3196,7 +3191,6 @@ MonoBehaviour:
   monsterList:
   - {fileID: 175637442477181491, guid: 5c604fdff4853274db7840281af96f40, type: 3}
   - {fileID: 4798879665137387923, guid: 3609acd2ef3c152469e0266033e013a9, type: 3}
-  - {fileID: 1506534044566626416, guid: 125dd81c6b751334dbfa70fbbe0bb1e1, type: 3}
   - {fileID: 7719964612844976216, guid: 75c4ceeb1766d334a9183b78177d92e4, type: 3}
   monsterContent: {fileID: 46204317}
   monsterPathList:
