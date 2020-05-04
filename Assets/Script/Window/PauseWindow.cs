@@ -15,21 +15,23 @@ namespace Script.Window
         public Sprite audioOnSprite;
         public Sprite audioOffSprite;
 
+        private float scale;
         private void Awake()
         {
             continueBtn.onClick.AddListener(() =>
             {
-                Time.timeScale = 1;
+                Time.timeScale = scale;
                 MainMgr.instance.PlayOpenWindowAudio();
                 Destroy(gameObject);
             });
             audioBtn.onClick.AddListener(SetAudio);
             quitBtn.onClick.AddListener(() =>
             {
-                Time.timeScale = 1;
+                Time.timeScale = scale;
                 SceneManager.LoadScene("Home");
                 Destroy(gameObject);
             });
+            scale = Time.timeScale;
             Time.timeScale = 0;
         }
 
