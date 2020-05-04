@@ -33,6 +33,7 @@ namespace Script.Manager
         {
             if (audioSource.volume>0)
             {
+
                 audioSource.volume = 0;
             }
             else

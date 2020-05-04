@@ -16,11 +16,12 @@ namespace Script.Role.Control.MonsterControl
         public new MonsterData data;
         protected HeroControl targetControl;
         private SpriteRenderer renderer;
-
+        public AudioSource _audioSource;
         private void Awake()
         {
             anim = GetComponent<Animator>();
             renderer = GetComponent<SpriteRenderer>();
+            _audioSource = GetComponent<AudioSource>();
             animList = anim.runtimeAnimatorController.animationClips;
         }
 
@@ -110,6 +111,14 @@ namespace Script.Role.Control.MonsterControl
 
         public override void Damage()
         {
+            if (_audioSource)
+            {
+                if (MainMgr.instance.GetBackGroupState())
+                {
+                    _audioSource.PlayOneShot(_audioSource.clip);
+                }
+                
+            }
             //播放攻击动画
             //一定时间后造成伤害
             anim.Play("Attack");

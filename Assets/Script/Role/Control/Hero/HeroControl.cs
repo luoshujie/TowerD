@@ -18,10 +18,12 @@ namespace Script.Role.Control.Hero
         public ISkillInterface skill;
 
         public NatureUi natureUi;
+        public AudioSource _audioSource;
 
         private void Awake()
         {
             anim = GetComponent<Animator>();
+            _audioSource = GetComponent<AudioSource>();
             animList = anim.runtimeAnimatorController.animationClips;
         }
 
@@ -196,6 +198,13 @@ namespace Script.Role.Control.Hero
 
         public override void Damage()
         {
+            if (_audioSource)
+            {
+                if (MainMgr.instance.GetBackGroupState())
+                {
+                    _audioSource.PlayOneShot(_audioSource.clip);
+                }
+            }
             Debug.Log("英雄：攻击");
             //播放动作
             //延时造成伤害

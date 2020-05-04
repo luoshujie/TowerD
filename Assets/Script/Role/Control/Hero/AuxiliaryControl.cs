@@ -63,6 +63,13 @@ namespace Script.Role.Control.Hero
 
         public override void Damage()
         {
+            if (_audioSource)
+            {
+                if (MainMgr.instance.GetBackGroupState())
+                {
+                    _audioSource.PlayOneShot(_audioSource.clip);
+                }
+            }
             data.CurrentAttackInterval = data.AttackInterval;
             Debug.LogWarning(distanceHeroList.Count);
             Debug.Log("英雄：恢复");
