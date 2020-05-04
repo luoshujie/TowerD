@@ -31,8 +31,8 @@ namespace Script.Role.Control.Hero
         
         public override void Damage()
         {
-            EffectMgr.instance.PlayGunFire(firePos);
             base.Damage();
+            EffectMgr.instance.PlayGunFire(firePos);
         }
     }
 }

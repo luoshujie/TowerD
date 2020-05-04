@@ -209,7 +209,13 @@ namespace Script.Manager
                 if (monsterSpawnIndex < _levelData.monsterIdList.Count)
                 {
                     CoinChange(300);
-                    Invoke(nameof(InstantiateMonster), 5);
+                    if (monsterSpawnIndex==_levelData.monsterIdList.Count-1)
+                    {
+                        WindowMgr.instance.ShowWindow<DialogWindow>().Init(5,7, () =>
+                        {
+                            Invoke(nameof(InstantiateMonster), 5);
+                        });
+                    }
                 }
                 else
                 {

@@ -31,6 +31,9 @@ namespace Script
         public Image bigMoveImg;
 
         public Image redPanel;
+        public GameObject skillOkTips;
+
+        public bool gameState;
 
         private void Awake()
         {
@@ -42,6 +45,7 @@ namespace Script
                 currentEnergy = 0;
                 bigMoveImg.fillAmount = currentEnergy * 1f / maxEnergy;
                 bigMoveBtn.interactable = false;
+                skillOkTips.SetActive(false);
                 new BigMoveSkill(10).UseSkill();
             });
             addSpeedBtn.onClick.AddListener(() =>
@@ -59,6 +63,7 @@ namespace Script
             });
             startFightBtn.onClick.AddListener(() =>
             {
+                gameState = true;
                 FightMgr.instance.InstantiateMonster();
                 startFightBtn.gameObject.SetActive(false);
             });
@@ -76,6 +81,7 @@ namespace Script
             {
                 currentEnergy = maxEnergy;
                 bigMoveBtn.interactable = true;
+                skillOkTips.SetActive(true);
             }
 
             bigMoveImg.fillAmount = currentEnergy * 1f / maxEnergy;

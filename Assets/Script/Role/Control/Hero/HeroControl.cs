@@ -19,9 +19,10 @@ namespace Script.Role.Control.Hero
 
         public NatureUi natureUi;
         public AudioSource _audioSource;
-        
+        public SpriteRenderer renderer;
         private void Awake()
         {
+            renderer = GetComponent<SpriteRenderer>();
             anim = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
             animList = anim.runtimeAnimatorController.animationClips;
@@ -116,6 +117,10 @@ namespace Script.Role.Control.Hero
 
         public virtual void ReplyEnergy()
         {
+            if (!Game.instance.gameState)
+            {
+                return;
+            }
             if (data.Alive && data.Energy < data.MaxEnergy)
             {
                 data.Energy += 1;
@@ -201,8 +206,24 @@ namespace Script.Role.Control.Hero
             }
         }
 
+        public void ChangeDir()
+        {
+            if (targetControl!=null)
+            {
+                if (targetControl.transform.position.x>transform.position.x)
+                {
+                    renderer.flipX = true;
+                }
+                else
+                {
+                    renderer.flipX = false;
+                }
+            }
+        }
+
         public override void Damage()
         {
+            ChangeDir();
             if (_audioSource)
             {
                 if (MainMgr.instance.GetBackGroupState())

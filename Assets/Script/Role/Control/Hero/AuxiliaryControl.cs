@@ -63,6 +63,7 @@ namespace Script.Role.Control.Hero
 
         public override void Damage()
         {
+            ChangeDir();
             if (_audioSource)
             {
                 if (MainMgr.instance.GetBackGroupState())
