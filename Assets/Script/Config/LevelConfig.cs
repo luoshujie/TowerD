@@ -13,8 +13,8 @@ namespace Script.Config
             {
                 new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(1,0),
-                    new LevelMonsterData(1,0),
+                    new LevelMonsterData(1,1),
+                    new LevelMonsterData(1,4),
                     new LevelMonsterData(1,0),
                     new LevelMonsterData(1,0),
                 },new List<LevelMonsterData>()

@@ -64,7 +64,7 @@ namespace Script.Manager
         {
             RemoveFx fx=GetEffectGo(3);
             fx.transform.parent = tranf;
-            fx.transform.localPosition = Vector3.zero;
+            fx.transform.localPosition =Vector3.zero;
             ShowEffect(fx);
         }
         public void PlayGunFire(Transform tranf)

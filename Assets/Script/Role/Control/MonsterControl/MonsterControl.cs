@@ -15,8 +15,9 @@ namespace Script.Role.Control.MonsterControl
         private Vector3 nextPos;
         public new MonsterData data;
         protected HeroControl targetControl;
-        private SpriteRenderer renderer;
+        public SpriteRenderer renderer;
         public AudioSource _audioSource;
+
         private void Awake()
         {
             anim = GetComponent<Animator>();
@@ -63,6 +64,7 @@ namespace Script.Role.Control.MonsterControl
             {
                 return;
             }
+
             if (data == null)
             {
                 return;
@@ -102,6 +104,17 @@ namespace Script.Role.Control.MonsterControl
                 if (data.CurrentAttackInterval <= 0)
                 {
                     Debug.Log("怪物：攻击");
+                    if (targetControl != null)
+                    {
+                        if (targetControl.transform.position.x > transform.position.x)
+                        {
+                            renderer.flipX = false;
+                        }
+                        else
+                        {
+                            renderer.flipX = true;
+                        }
+                    }
                     //攻击
                     Damage();
                     data.CurrentAttackInterval = data.AttackInterval;
@@ -117,13 +130,13 @@ namespace Script.Role.Control.MonsterControl
                 {
                     _audioSource.PlayOneShot(_audioSource.clip);
                 }
-                
             }
+
             //播放攻击动画
             //一定时间后造成伤害
             anim.Play("Attack");
             animState = true;
-            Invoke(nameof(InvokeChangeState),GetAnimTime("Attack"));
+            Invoke(nameof(InvokeChangeState), GetAnimTime("Attack"));
             DOTween.Sequence().InsertCallback(0.4f, () => { targetControl.Hurt(data.Attack); });
         }
 
@@ -131,7 +144,7 @@ namespace Script.Role.Control.MonsterControl
         {
             if (Vector3.Distance(transform.position, nextPos) > 0.1f)
             {
-                if (nextPos.x<transform.position.x)
+                if (nextPos.x < transform.position.x)
                 {
                     renderer.flipX = true;
                 }
@@ -139,6 +152,7 @@ namespace Script.Role.Control.MonsterControl
                 {
                     renderer.flipX = false;
                 }
+
                 transform.position += (nextPos - transform.position).normalized * Time.fixedDeltaTime * data.speed;
                 if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
                 {
@@ -156,7 +170,7 @@ namespace Script.Role.Control.MonsterControl
                 {
                     Debug.LogWarning("到达目的地");
                     FightMgr.instance.RedueCrystal();
-                    FightMgr.instance.MonsterDie(this,true);
+                    FightMgr.instance.MonsterDie(this, true);
                     Destroy(gameObject);
                 }
             }

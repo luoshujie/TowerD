@@ -240,10 +240,12 @@ namespace Script.Manager
         }
 
 
+        public Action updateCoinChange;
         private void CoinChange(int value)
         {
             coin += value;
             Game.instance.DisplayCoin();
+            updateCoinChange?.Invoke();
         }
         public void CloseHighlight(int heroId, StanceEnum stanceEnum)
         {

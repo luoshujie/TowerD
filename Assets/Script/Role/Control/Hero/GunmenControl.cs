@@ -1,4 +1,5 @@
-﻿using Script.Manager;
+﻿using DG.Tweening;
+using Script.Manager;
 using Script.Role.Data;
 using Script.Role.Skill;
 using UnityEngine;
@@ -27,6 +28,7 @@ namespace Script.Role.Control.Hero
         }
 
         public Transform firePos;
+        
         public override void Damage()
         {
             EffectMgr.instance.PlayGunFire(firePos);

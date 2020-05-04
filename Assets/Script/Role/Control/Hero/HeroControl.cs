@@ -19,7 +19,7 @@ namespace Script.Role.Control.Hero
 
         public NatureUi natureUi;
         public AudioSource _audioSource;
-
+        
         private void Awake()
         {
             anim = GetComponent<Animator>();
@@ -139,6 +139,7 @@ namespace Script.Role.Control.Hero
 
         public override void Hurt(int value)
         {
+            Game.instance.AddEnergy(1);
             EffectMgr.instance.PlayHurtFx(transform);
             value -= data.Defense;
             if (value<=0)

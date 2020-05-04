@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Script.Manager;
 using Script.Role.Data;
+using Script.Role.Skill;
 using Script.Window;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,11 +26,21 @@ namespace Script
         public Image addSpeedImg;
         public Sprite oneSprite;
         public Sprite twoSprite;
+
+        public Button bigMoveBtn;
+        public Image bigMoveImg;
         private void Awake()
         {
             instance = this;
             pauseBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<PauseWindow>();});
             retreatToggle.onValueChanged.AddListener(Retreat);
+            bigMoveBtn.onClick.AddListener(() =>
+            {
+                currentEnergy = 0;
+                bigMoveImg.fillAmount = currentEnergy * 1f / maxEnergy;
+                bigMoveBtn.interactable = false;
+                new BigMoveSkill(10).UseSkill();
+            });
             addSpeedBtn.onClick.AddListener(() =>
             {
                 if (Time.timeScale>1)
@@ -48,8 +59,24 @@ namespace Script
                 FightMgr.instance.InstantiateMonster();
                 startFightBtn.gameObject.SetActive(false);
             });
+            bigMoveImg.fillAmount = currentEnergy * 1f / maxEnergy;
+            bigMoveBtn.interactable = false;
         }
 
+        private int currentEnergy = 0;
+        private int maxEnergy = 20;
+        public void AddEnergy(int value)
+        {
+            currentEnergy += value;
+            if (currentEnergy>=maxEnergy)
+            {
+                currentEnergy = maxEnergy;
+                bigMoveBtn.interactable = true;
+            }
+
+            bigMoveImg.fillAmount = currentEnergy * 1f / maxEnergy;
+        }
+        
         private void Retreat(bool state)
         {
             FightMgr.instance.Retreat(state);
