@@ -10,9 +10,20 @@ namespace Script.Window
         public Image img;
         public Sprite winSprite;
         public Sprite loseSprite;
+        public AudioClip loseClip;
+        public AudioSource audioSource;
 
         public void Init(bool state)
         {
+            if (state)
+            {
+                audioSource.Play();
+            }
+            else
+            {
+                audioSource.clip = loseClip;
+                audioSource.Play();
+            }
             Time.timeScale = 0;
             img.sprite = state ? winSprite : loseSprite;
         }

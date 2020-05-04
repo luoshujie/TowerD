@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7125594517175903001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.863513, y: 6.9336395, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8987, y: 0.8709, z: 1}
   m_Children:
   - {fileID: 7125594517415374261}
   m_Father: {fileID: 0}
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hero: {fileID: 0}
   stance: 1
+  heroControl: {fileID: 0}
   highlightSprite: {fileID: 7125594517415374263}
 --- !u!1 &7125594517415374263
 GameObject:

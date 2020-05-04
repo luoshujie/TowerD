@@ -146,10 +146,14 @@ namespace Script.Manager
             return null;
         }
 
-        public void RedueCrystal()
+        public void RedueCrystal(bool isBoss=false)
         {
             Game.instance.ShowRedPanel();
             crystalCnt--;
+            if (isBoss)
+            {
+                crystalCnt = 0;
+            }
             Game.instance.ShowCrystalCnt();
             if (crystalCnt <= 0)
             {

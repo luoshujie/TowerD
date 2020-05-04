@@ -6,11 +6,13 @@ using Script.Role.Control.Hero;
 using Script.Role.Data;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Script.Role.Control.MonsterControl
 {
     public class MonsterControl : BaseControl
     {
+        public bool isBoss;
         private List<Vector3> pathPosList;
         private Vector3 nextPos;
         public new MonsterData data;
@@ -91,6 +93,7 @@ namespace Script.Role.Control.MonsterControl
             }
         }
 
+        private bool firstAttack;
         public override void Attack()
         {
             if (!targetControl.data.Alive)
@@ -124,6 +127,13 @@ namespace Script.Role.Control.MonsterControl
 
         public override void Damage()
         {
+            if (firstAttack)
+            {
+                float dis = Random.Range(-0.25f, 0.3f);
+                //偏移
+                transform.position=new Vector3(transform.position.x,transform.position.y+dis,transform.position.z);
+                firstAttack = false;
+            }
             if (_audioSource)
             {
                 if (MainMgr.instance.GetBackGroupState())
@@ -142,6 +152,7 @@ namespace Script.Role.Control.MonsterControl
 
         public void OnMoveForTarget()
         {
+            firstAttack = true;
             if (Vector3.Distance(transform.position, nextPos) > 0.1f)
             {
                 if (nextPos.x < transform.position.x)
@@ -169,7 +180,7 @@ namespace Script.Role.Control.MonsterControl
                 else
                 {
                     Debug.LogWarning("到达目的地");
-                    FightMgr.instance.RedueCrystal();
+                    FightMgr.instance.RedueCrystal(isBoss);
                     FightMgr.instance.MonsterDie(this, true);
                     Destroy(gameObject);
                 }

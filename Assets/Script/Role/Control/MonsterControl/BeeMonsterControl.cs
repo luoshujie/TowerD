@@ -20,15 +20,17 @@ namespace Script.Role.Control.MonsterControl
         public Transform attackPosLeft;
         public override void Damage()
         {
+            bool state = false;
             if (renderer.flipX)
             {
                 dir=attackPosLeft;
             }
             else
             {
+                state = true;
                 dir=attackPosRight;
             }
-            EffectMgr.instance.BeeMonsterAttack(dir);
+            EffectMgr.instance.BeeMonsterAttack(dir,state);
             base.Damage();
         }
     }

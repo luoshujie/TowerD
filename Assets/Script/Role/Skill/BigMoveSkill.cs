@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DG.Tweening;
 using Script.Manager;
 using Script.Role.Control.MonsterControl;
 
@@ -15,11 +16,14 @@ namespace Script.Role.Skill
         public void UseSkill()
         {
             EffectMgr.instance.PlaBigMoveSkill();
-            List<MonsterControl> allMonsterList = FightMgr.instance.GetAllMonster();
-            for (int i = 0; i < allMonsterList.Count; i++)
+            DOTween.Sequence().InsertCallback(0.2f, () =>
             {
-                allMonsterList[i].Hurt(attackValue);
-            }
+                List<MonsterControl> allMonsterList = FightMgr.instance.GetAllMonster();
+                for (int i = 0; i < allMonsterList.Count; i++)
+                {
+                    allMonsterList[i].Hurt(attackValue);
+                }
+            });
         }
     }
 }
