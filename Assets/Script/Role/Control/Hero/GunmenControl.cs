@@ -27,11 +27,21 @@ namespace Script.Role.Control.Hero
             attackStance = StanceEnum.None;
         }
 
-        public Transform firePos;
+        public Transform firePosLeft;
+        public Transform firePosRight;
+        private Transform firePos;
         
         public override void Damage()
         {
             base.Damage();
+            if (renderer.flipX)
+            {
+                firePos = firePosRight;
+            }
+            else
+            {
+                firePos = firePosLeft;
+            }
             EffectMgr.instance.PlayGunFire(firePos);
         }
     }

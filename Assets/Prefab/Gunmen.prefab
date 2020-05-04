@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6125973603416841037}
   m_Layer: 0
-  m_Name: FirePos
+  m_Name: FirePosLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,6 +142,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8969732126530639836}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4315087166003822509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722055234868670835}
+  m_Layer: 0
+  m_Name: FirePosRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1722055234868670835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315087166003822509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.11, y: -0.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8969732126530639836}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4379951256320156333
 GameObject:
@@ -708,6 +738,7 @@ Transform:
   m_Children:
   - {fileID: 2666035440541055483}
   - {fileID: 6125973603416841037}
+  - {fileID: 1722055234868670835}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -773,7 +804,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   natureUi: {fileID: 281755800160056848}
   _audioSource: {fileID: 0}
-  firePos: {fileID: 6125973603416841037}
+  renderer: {fileID: 0}
+  firePosLeft: {fileID: 6125973603416841037}
+  firePosRight: {fileID: 1722055234868670835}
 --- !u!95 &3246458268374220621
 Animator:
   serializedVersion: 3
