@@ -29,10 +29,13 @@ namespace Script
 
         public Button bigMoveBtn;
         public Image bigMoveImg;
+
+        public Image redPanel;
+
         private void Awake()
         {
             instance = this;
-            pauseBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<PauseWindow>();});
+            pauseBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<PauseWindow>(); });
             retreatToggle.onValueChanged.AddListener(Retreat);
             bigMoveBtn.onClick.AddListener(() =>
             {
@@ -43,7 +46,7 @@ namespace Script
             });
             addSpeedBtn.onClick.AddListener(() =>
             {
-                if (Time.timeScale>1)
+                if (Time.timeScale > 1)
                 {
                     Time.timeScale = 1;
                     addSpeedImg.sprite = oneSprite;
@@ -65,10 +68,11 @@ namespace Script
 
         private int currentEnergy = 0;
         private int maxEnergy = 20;
+
         public void AddEnergy(int value)
         {
             currentEnergy += value;
-            if (currentEnergy>=maxEnergy)
+            if (currentEnergy >= maxEnergy)
             {
                 currentEnergy = maxEnergy;
                 bigMoveBtn.interactable = true;
@@ -76,7 +80,21 @@ namespace Script
 
             bigMoveImg.fillAmount = currentEnergy * 1f / maxEnergy;
         }
-        
+
+        private Sequence _sequence;
+
+        public void ShowRedPanel()
+        {
+            if (_sequence != null)
+            {
+                return;
+            }
+
+            _sequence = DOTween.Sequence().Append(redPanel.DOColor(Color.white, 0.5f).SetEase(Ease.Linear))
+                .Append(redPanel.DOColor(new Color(1, 1, 1, 0), 0.5f).SetEase(Ease.Linear)).AppendCallback(
+                    () => { _sequence = null; });
+        }
+
         private void Retreat(bool state)
         {
             FightMgr.instance.Retreat(state);
@@ -88,12 +106,11 @@ namespace Script
             {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 pos.z = 10;
-                _dragObj.transform.position =pos;
+                _dragObj.transform.position = pos;
                 if (!_dragObj.activeSelf)
                 {
                     _dragObj.SetActive(true);
                 }
-                
             }
         }
 
@@ -112,20 +129,19 @@ namespace Script
             crystalCntText.text = FightMgr.instance.crystalCnt.ToString();
         }
 
-        public void Move(bool state, int heroId,StanceEnum stanceEnum)
+        public void Move(bool state, int heroId, StanceEnum stanceEnum)
         {
             if (state)
             {
                 _dragObj = FightMgr.instance.GetHeroModel(heroId);
-                
+
                 FightMgr.instance.ShowHighlight(stanceEnum);
             }
             else
             {
-                FightMgr.instance.CloseHighlight(heroId,stanceEnum);
+                FightMgr.instance.CloseHighlight(heroId, stanceEnum);
                 _dragObj.SetActive(false);
                 _dragObj = null;
-                
             }
         }
     }

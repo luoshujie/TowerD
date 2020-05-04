@@ -19,7 +19,7 @@ namespace Script.Manager
         public int id;
         public List<Transform> pathList;
     }
-    
+
     public class FightMgr : MonoBehaviour
     {
         public static FightMgr instance;
@@ -27,27 +27,28 @@ namespace Script.Manager
         public List<GameObject> heroModelList;
 
         public List<GameObject> heroSpriteList;
-        
+
         public List<GameObject> monsterList;
         public Transform monsterContent;
 
         public List<PathData> monsterPathList;
-        
-        private List<MonsterControl>sceneMonsterList=new List<MonsterControl>();
+
+        private List<MonsterControl> sceneMonsterList = new List<MonsterControl>();
 
         private LevelData _levelData;
         private int monsterSpawnIndex;
 
         public int crystalCnt = 10;
-        public int coin=1000;   
-        
+        public int coin = 1000;
+
         private void Awake()
         {
-            if (MainMgr.instance==null)
+            if (MainMgr.instance == null)
             {
                 SceneManager.LoadScene("Init");
                 return;
             }
+
             instance = this;
         }
 
@@ -57,23 +58,22 @@ namespace Script.Manager
             {
                 platformItemList[i].Retreat(state);
             }
-            
         }
 
         private void Start()
         {
-            WindowMgr.instance.ShowWindow<DialogWindow>(false).Init(0,5,()=>{});
+            WindowMgr.instance.ShowWindow<DialogWindow>(false).Init(0, 5, () => { });
             MainMgr.instance.PlayBackGroupAudio(2);
             _levelData = LevelConfig.GetLevelData(1);
             monsterSpawnIndex = 0;
-            Game.instance.DisplayNum(monsterSpawnIndex+1,_levelData.monsterIdList.Count);
+            Game.instance.DisplayNum(monsterSpawnIndex + 1, _levelData.monsterIdList.Count);
             Game.instance.ShowCrystalCnt();
             Game.instance.DisplayCoin();
         }
 
         public List<HeroControl> GetOnDistanceHero(Vector3 pos, float distance)
         {
-            List<HeroControl>heroControls=new List<HeroControl>();
+            List<HeroControl> heroControls = new List<HeroControl>();
             for (int i = 0; i < platformItemList.Count; i++)
             {
                 if (!platformItemList[i].CheckoutHero())
@@ -81,7 +81,7 @@ namespace Script.Manager
                     continue;
                 }
 
-                if (Vector3.Distance(pos,platformItemList[i].transform.position)<distance)
+                if (Vector3.Distance(pos, platformItemList[i].transform.position) < distance)
                 {
                     if (platformItemList[i].heroControl.data.Alive)
                     {
@@ -97,18 +97,19 @@ namespace Script.Manager
         {
             return sceneMonsterList;
         }
-        
-        public HeroControl GetHeroTarget(Vector3 pos, float distance,StanceEnum stanceEnum)
+
+        public HeroControl GetHeroTarget(Vector3 pos, float distance, StanceEnum stanceEnum)
         {
             for (int i = 0; i < platformItemList.Count; i++)
             {
-                if (platformItemList[i].stance!=stanceEnum)
+                if (platformItemList[i].stance != stanceEnum)
                 {
                     continue;
                 }
+
                 if (platformItemList[i].CheckoutHero())
                 {
-                    if (Vector3.Distance(pos,platformItemList[i].transform.position)<distance)
+                    if (Vector3.Distance(pos, platformItemList[i].transform.position) < distance)
                     {
                         if (platformItemList[i].heroControl.data.Alive)
                         {
@@ -120,17 +121,19 @@ namespace Script.Manager
 
             return null;
         }
-        public MonsterControl GetMonsterTarget(Vector3 pos,float distance,StanceEnum stanceEnum)
+
+        public MonsterControl GetMonsterTarget(Vector3 pos, float distance, StanceEnum stanceEnum)
         {
-            if (sceneMonsterList.Count<=0)
+            if (sceneMonsterList.Count <= 0)
             {
                 return null;
             }
+
             for (int i = 0; i < sceneMonsterList.Count; i++)
             {
-                if (Vector3.Distance(pos,sceneMonsterList[i].transform.position)<distance)
+                if (Vector3.Distance(pos, sceneMonsterList[i].transform.position) < distance)
                 {
-                    if (stanceEnum==StanceEnum.None||stanceEnum==sceneMonsterList[i].data.Stance)
+                    if (stanceEnum == StanceEnum.None || stanceEnum == sceneMonsterList[i].data.Stance)
                     {
                         if (sceneMonsterList[i].data.Alive)
                         {
@@ -145,30 +148,32 @@ namespace Script.Manager
 
         public void RedueCrystal()
         {
+            Game.instance.ShowRedPanel();
             crystalCnt--;
             Game.instance.ShowCrystalCnt();
-            if (crystalCnt<=0)
+            if (crystalCnt <= 0)
             {
                 //游戏结束
                 WindowMgr.instance.ShowWindow<GameEndWindow>().Init(false);
             }
         }
-        
+
 
         public void InstantiateMonster()
         {
             StartCoroutine(SpawnMonster());
         }
 
-        private WaitForSeconds waitForSeconds=new WaitForSeconds(2);
+        private WaitForSeconds waitForSeconds = new WaitForSeconds(2);
+
         IEnumerator SpawnMonster()
         {
-            Game.instance.DisplayNum(monsterSpawnIndex+1,_levelData.monsterIdList.Count);
+            Game.instance.DisplayNum(monsterSpawnIndex + 1, _levelData.monsterIdList.Count);
             List<LevelMonsterData> levelMonsterData = _levelData.monsterIdList[monsterSpawnIndex];
             for (int i = 0; i < levelMonsterData.Count; i++)
             {
-                GameObject monster=Instantiate(monsterList[levelMonsterData[i].monsterId],monsterContent);
-                MonsterControl monsterControl=monster.GetComponent<MonsterControl>();
+                GameObject monster = Instantiate(monsterList[levelMonsterData[i].monsterId], monsterContent);
+                MonsterControl monsterControl = monster.GetComponent<MonsterControl>();
                 monsterControl.InitPath(monsterPathList[levelMonsterData[i].pathId].pathList);
                 monster.SetActive(true);
                 sceneMonsterList.Add(monsterControl);
@@ -190,25 +195,26 @@ namespace Script.Manager
             }
         }
 
-        public void MonsterDie(MonsterControl monster,bool alive=false)
+        public void MonsterDie(MonsterControl monster, bool alive = false)
         {
             if (!alive)
             {
                 CoinChange(100);
             }
+
             sceneMonsterList.Remove(monster);
-            if (sceneMonsterList.Count<=0)
+            if (sceneMonsterList.Count <= 0)
             {
                 //下一波
-                if (monsterSpawnIndex<_levelData.monsterIdList.Count)
+                if (monsterSpawnIndex < _levelData.monsterIdList.Count)
                 {
                     CoinChange(300);
-                    Invoke(nameof(InstantiateMonster),5);
+                    Invoke(nameof(InstantiateMonster), 5);
                 }
                 else
                 {
                     //打完了
-                    if (monsterSpawnIndex>=_levelData.monsterIdList.Count)
+                    if (monsterSpawnIndex >= _levelData.monsterIdList.Count)
                     {
                         WindowMgr.instance.ShowWindow<GameEndWindow>().Init(true);
                     }
@@ -227,7 +233,7 @@ namespace Script.Manager
                 return heroModelList[0];
             }
         }
-        
+
         public void ShowHighlight(StanceEnum stanceEnum)
         {
             for (int i = 0; i < platformItemList.Count; i++)
@@ -241,25 +247,27 @@ namespace Script.Manager
 
 
         public Action updateCoinChange;
+
         private void CoinChange(int value)
         {
             coin += value;
             Game.instance.DisplayCoin();
             updateCoinChange?.Invoke();
         }
+
         public void CloseHighlight(int heroId, StanceEnum stanceEnum)
         {
-            
             for (int i = 0; i < platformItemList.Count; i++)
             {
                 platformItemList[i].CloseHighlight();
             }
 
             int price = HeroConfig.GetHeroPrice(heroId);
-            if (coin<price)
+            if (coin < price)
             {
                 return;
             }
+
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos.z = 10;
 
@@ -269,7 +277,6 @@ namespace Script.Manager
                 {
                     if (Vector3.Distance(platformItemList[i].transform.position, pos) < 1)
                     {
-                        
                         platformItemList[i].InstantiateHero(GetHeroPrefab(heroId));
                         CoinChange(-price);
                     }
