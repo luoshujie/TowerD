@@ -183,6 +183,10 @@ namespace Script.Role.Control.Hero
 
         public override void Attack()
         {
+            if (Vector3.Distance(targetControl.transform.position,transform.position)>data.AttackDistance)
+            {
+                targetControl = FightMgr.instance.GetMonsterTarget(transform.position,data.AttackDistance,attackStance);
+            }
             if (targetControl != null && !targetControl.data.Alive)
             {
                 targetControl = null;
