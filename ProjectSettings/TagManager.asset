@@ -47,3 +47,6 @@ TagManager:
   - name: Window
     uniqueID: 1214288261
     locked: 0
+  - name: Effect
+    uniqueID: 1236783155
+    locked: 0

@@ -43,6 +43,7 @@
           </e>
           <e p="NatureUi.cs" t="Include" />
           <e p="PlatformItem.cs" t="Include" />
+          <e p="RemoveFx.cs" t="Include" />
           <e p="Role" t="Include">
             <e p="Control" t="Include">
               <e p="BaseControl.cs" t="Include" />
@@ -71,6 +72,7 @@
               <e p="AddAttackSkill.cs" t="Include" />
               <e p="AddDefenseSkill.cs" t="Include" />
               <e p="AddLifeSkill.cs" t="Include" />
+              <e p="BigMoveSkill.cs" t="Include" />
               <e p="SkillInterface.cs" t="Include" />
             </e>
           </e>

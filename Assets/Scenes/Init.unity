@@ -306,6 +306,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4876a29ec4d96304994bd4cbf3d255f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fxPrefabList:
+  - {fileID: 187180, guid: 1ed56f4c486ff6141a344e5e5714e1b9, type: 3}
+  - {fileID: 127072, guid: 7f45705f5f30d8a45af0fc2eb8c8998a, type: 3}
+  - {fileID: 160890, guid: 81a6215dbf618d84cae2c6907f947094, type: 3}
+  - {fileID: 105608, guid: 9c6af9e56f998094e8a7ade8f0e2a0a9, type: 3}
+  - {fileID: 149626, guid: 2aca4c37fa723b4489a42288a1356056, type: 3}
+  - {fileID: 136094, guid: cbf6e26bfae3a4f48acb9bb79ce1e5da, type: 3}
+  - {fileID: 124416, guid: 9b95de169c5cf5b46b404f6f2bed4afb, type: 3}
+  - {fileID: 180820, guid: a07608802ac497743a7f19f6633fdd70, type: 3}
+  - {fileID: 185518, guid: 2ef436b6c6313494daf190cd68ebf636, type: 3}
 --- !u!1 &383027572
 GameObject:
   m_ObjectHideFlags: 0

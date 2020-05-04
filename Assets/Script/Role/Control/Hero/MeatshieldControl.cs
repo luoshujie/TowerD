@@ -12,9 +12,10 @@ namespace Script.Role.Control.Hero
             transform.localPosition = pos;
         }
 
+        public Transform skillPos;
         public override void InitSkill()
         {
-            skill=new AddDefenseSkill(data,10,5);
+            skill=new AddDefenseSkill(data,10,5,skillPos);
         }
 
         public override void InitData()

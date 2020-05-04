@@ -11,9 +11,10 @@ namespace Script.Role.Control.Hero
     {
         private Vector3 pos = new Vector3(-0.12f, 1.36f, 0);
 
+        public Transform skillPos;
         public override void InitSkill()
         {
-            skill=new AddLifeSkill(transform,5,10);
+            skill=new AddLifeSkill(transform,5,10,skillPos);
         }
 
         public override void SetPos()

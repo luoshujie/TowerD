@@ -137,6 +137,7 @@ namespace Script.Role.Control.Hero
 
         public override void Hurt(int value)
         {
+            EffectMgr.instance.PlayHurtFx(transform);
             value -= data.Defense;
             if (value<=0)
             {
@@ -147,6 +148,7 @@ namespace Script.Role.Control.Hero
 
         public virtual void ReplyLife(int value)
         {
+            EffectMgr.instance.PlayAddLifeFx(transform);
             LifeChange(value);
         }
 
@@ -171,6 +173,7 @@ namespace Script.Role.Control.Hero
 
         public override void Die()
         {
+            EffectMgr.instance.PlayHeroDie(transform.position);
             data.Alive = false;
             CancelInvoke(nameof(ReplyEnergy));
             Destroy(gameObject);

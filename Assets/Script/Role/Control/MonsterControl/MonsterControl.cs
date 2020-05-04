@@ -155,6 +155,7 @@ namespace Script.Role.Control.MonsterControl
 
         public override void Hurt(int value)
         {
+            EffectMgr.instance.PlayHurtFx(transform);
             if (data.Alive)
             {
                 LifeChange(-value);
@@ -174,6 +175,7 @@ namespace Script.Role.Control.MonsterControl
 
         public override void Die()
         {
+            EffectMgr.instance.PlayMonsterDie(transform.position);
             FightMgr.instance.MonsterDie(this);
             Destroy(gameObject);
         }

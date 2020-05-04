@@ -1,4 +1,5 @@
-﻿using Script.Role.Data;
+﻿using Script.Manager;
+using Script.Role.Data;
 using Script.Role.Skill;
 using UnityEngine;
 
@@ -23,6 +24,13 @@ namespace Script.Role.Control.Hero
             data = new HeroData(5, "艾米丽", AttackTargetEnum.Monster, 40, 20,
                 20, 30, 3, 2, OccupationEnum.Gunmen, StanceEnum.Highland);
             attackStance = StanceEnum.None;
+        }
+
+        public Transform firePos;
+        public override void Damage()
+        {
+            EffectMgr.instance.PlayGunFire(firePos);
+            base.Damage();
         }
     }
 }

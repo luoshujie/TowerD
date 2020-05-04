@@ -6,6 +6,7 @@ using Script.Config;
 using Script.Role.Control.Hero;
 using Script.Role.Control.MonsterControl;
 using Script.Role.Data;
+using Script.Role.Skill;
 using Script.Window;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,7 +33,7 @@ namespace Script.Manager
 
         public List<PathData> monsterPathList;
         
-        private IList<MonsterControl>sceneMonsterList=new List<MonsterControl>();
+        private List<MonsterControl>sceneMonsterList=new List<MonsterControl>();
 
         private LevelData _levelData;
         private int monsterSpawnIndex;
@@ -90,6 +91,11 @@ namespace Script.Manager
             }
 
             return heroControls;
+        }
+
+        public List<MonsterControl> GetAllMonster()
+        {
+            return sceneMonsterList;
         }
         
         public HeroControl GetHeroTarget(Vector3 pos, float distance,StanceEnum stanceEnum)
