@@ -6,7 +6,7 @@ namespace Script.Role.Control.Hero
 {
     public class WarriorControl : HeroControl
     {
-        private Vector3 pos = new Vector3(-0.229f, 1.396f, 0);
+        private Vector3 pos = new Vector3(0.01f, 1.42f, 0);
 
         public override void InitSkill()
         {

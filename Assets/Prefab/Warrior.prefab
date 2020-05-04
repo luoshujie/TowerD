@@ -373,6 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   natureUi: {fileID: 3301172543153433960}
   _audioSource: {fileID: 0}
+  renderer: {fileID: 0}
 --- !u!82 &82541838043067774
 AudioSource:
   m_ObjectHideFlags: 0
@@ -778,7 +779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.03, y: 2.17}
+  m_AnchoredPosition: {x: -0.31, y: 2.11}
   m_SizeDelta: {x: 2.558, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1105860598115170493

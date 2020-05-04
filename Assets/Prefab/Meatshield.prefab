@@ -209,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5034899016406090861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.62, y: -1.99, z: 0}
+  m_LocalPosition: {x: -0.26, y: -1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8760116905222158039}
@@ -403,7 +403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.54, y: 2.38}
+  m_AnchoredPosition: {x: -0.33999985, y: 2.38}
   m_SizeDelta: {x: 2.558, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2632604616997470926
@@ -757,6 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   natureUi: {fileID: 432402024376538907}
   _audioSource: {fileID: 0}
+  renderer: {fileID: 0}
   skillPos: {fileID: 4640047911254607975}
 --- !u!82 &82829223766930772
 AudioSource:
