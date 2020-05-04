@@ -2629,7 +2629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7ce5c8a281ee95b429cc6c5da6b6777d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 314206d7d352062408da3146e775a33b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3912,6 +3912,9 @@ MonoBehaviour:
   addSpeedBtn: {fileID: 1100793636}
   startFightBtn: {fileID: 2025484269}
   retreatToggle: {fileID: 1311261059}
+  addSpeedImg: {fileID: 1100793637}
+  oneSprite: {fileID: 21300000, guid: 314206d7d352062408da3146e775a33b, type: 3}
+  twoSprite: {fileID: 21300000, guid: 7ce5c8a281ee95b429cc6c5da6b6777d, type: 3}
 --- !u!1001 &1838002133
 PrefabInstance:
   m_ObjectHideFlags: 0

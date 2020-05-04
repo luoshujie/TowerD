@@ -22,12 +22,27 @@ namespace Script
         public Button addSpeedBtn;
         public Button startFightBtn;
         public Toggle retreatToggle;
-        
+        public Image addSpeedImg;
+        public Sprite oneSprite;
+        public Sprite twoSprite;
         private void Awake()
         {
             instance = this;
             pauseBtn.onClick.AddListener(() => { WindowMgr.instance.ShowWindow<PauseWindow>();});
             retreatToggle.onValueChanged.AddListener(Retreat);
+            addSpeedBtn.onClick.AddListener(() =>
+            {
+                if (Time.timeScale>1)
+                {
+                    Time.timeScale = 1;
+                    addSpeedImg.sprite = oneSprite;
+                }
+                else
+                {
+                    Time.timeScale = 2;
+                    addSpeedImg.sprite = twoSprite;
+                }
+            });
             startFightBtn.onClick.AddListener(() =>
             {
                 FightMgr.instance.InstantiateMonster();
