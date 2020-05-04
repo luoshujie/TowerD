@@ -216,6 +216,10 @@ namespace Script.Manager
                             Invoke(nameof(InstantiateMonster), 5);
                         });
                     }
+                    else
+                    {
+                        Invoke(nameof(InstantiateMonster), 5);
+                    }
                 }
                 else
                 {
