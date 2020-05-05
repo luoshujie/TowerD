@@ -167,16 +167,24 @@ namespace Script.Manager
             }
         }
 
+       
 
         public void InstantiateMonster()
         {
             StartCoroutine(SpawnMonster());
         }
 
+        private IEnumerator YanShi(float time)
+        {
+            yield return  new WaitForSeconds(time);
+            InstantiateMonster();
+        }
+
         private WaitForSeconds waitForSeconds = new WaitForSeconds(2);
 
         IEnumerator SpawnMonster()
         {
+            Debug.LogWarning(monsterSpawnIndex);
             Game.instance.DisplayNum(monsterSpawnIndex + 1, _levelData.monsterIdList.Count);
             List<LevelMonsterData> levelMonsterData = _levelData.monsterIdList[monsterSpawnIndex];
             for (int i = 0; i < levelMonsterData.Count; i++)
@@ -189,6 +197,7 @@ namespace Script.Manager
                 yield return waitForSeconds;
             }
 
+            spawnState = false;
             monsterSpawnIndex++;
         }
 
@@ -220,12 +229,24 @@ namespace Script.Manager
                     CoinChange(300);
                     if (monsterSpawnIndex == _levelData.monsterIdList.Count - 1)
                     {
+                        if (spawnState)
+                        {
+                            return;
+                        }
+
+                        spawnState = true;
                         WindowMgr.instance.ShowWindow<DialogWindow>()
-                            .Init(5, 7, () => { Invoke(nameof(InstantiateMonster), 5); });
+                            .Init(5, 7, () => { StartCoroutine(YanShi(5)); });
                     }
                     else
                     {
-                        Invoke(nameof(InstantiateMonster), 5);
+                        if (spawnState)
+                        {
+                            return;
+                        }
+
+                        spawnState = true;
+                        StartCoroutine(YanShi(5));
                     }
                 }
                 else
@@ -241,6 +262,8 @@ namespace Script.Manager
                 }
             }
         }
+
+        private bool spawnState;
 
         public GameObject GetHeroPrefab(int heroId)
         {

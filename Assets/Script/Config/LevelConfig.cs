@@ -13,92 +13,99 @@ namespace Script.Config
             {
                 new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(1,0),
-                    new LevelMonsterData(1,0),
-                    new LevelMonsterData(1,0),
-                    new LevelMonsterData(1,0),
-                },new List<LevelMonsterData>()
+                    new LevelMonsterData(1, 0),
+                    new LevelMonsterData(1, 0),
+                    new LevelMonsterData(1, 0),
+                    new LevelMonsterData(1, 0),
+                },
+                new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(0,0),
-                    new LevelMonsterData(0,0),
-                    new LevelMonsterData(0,0),
-                    new LevelMonsterData(0,0),
-                    new LevelMonsterData(0,0),
-                    new LevelMonsterData(0,0),
-                },new List<LevelMonsterData>()
+                    new LevelMonsterData(0, 0),
+                    new LevelMonsterData(0, 0),
+                    new LevelMonsterData(0, 0),
+                    new LevelMonsterData(0, 0),
+                    new LevelMonsterData(0, 0),
+                    new LevelMonsterData(0, 0),
+                },
+                new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(0,0),
-                    new LevelMonsterData(0,0),
-                    new LevelMonsterData(0,0),
-                    new LevelMonsterData(0,0),
-                    new LevelMonsterData(1,1),
-                    new LevelMonsterData(1,1),
-                },new List<LevelMonsterData>()
+                    new LevelMonsterData(0, 0),
+                    new LevelMonsterData(0, 0),
+                    new LevelMonsterData(0, 0),
+                    new LevelMonsterData(0, 0),
+                    new LevelMonsterData(1, 1),
+                    new LevelMonsterData(1, 1),
+                },
+                new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(2,0),
-                    new LevelMonsterData(2,0),
-                    new LevelMonsterData(2,0),
-                    new LevelMonsterData(2,0),
-                    new LevelMonsterData(2,0),
-                    new LevelMonsterData(2,0),
-                    new LevelMonsterData(0,1),
-                    new LevelMonsterData(0,1),
-                    new LevelMonsterData(0,1),
-                    new LevelMonsterData(0,1),
-                },new List<LevelMonsterData>()
+                    new LevelMonsterData(2, 0),
+                    new LevelMonsterData(2, 0),
+                    new LevelMonsterData(2, 0),
+                    new LevelMonsterData(2, 0),
+                    new LevelMonsterData(2, 0),
+                    new LevelMonsterData(2, 0),
+                    new LevelMonsterData(0, 1),
+                    new LevelMonsterData(0, 1),
+                    new LevelMonsterData(0, 1),
+                    new LevelMonsterData(0, 1),
+                },
+                new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                },new List<LevelMonsterData>()
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                },
+                new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(0,3),
-                    new LevelMonsterData(0,3),
-                    new LevelMonsterData(0,3),
-                    new LevelMonsterData(0,3),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                },new List<LevelMonsterData>()
+                    new LevelMonsterData(0, 3),
+                    new LevelMonsterData(0, 3),
+                    new LevelMonsterData(0, 3),
+                    new LevelMonsterData(0, 3),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                },
+                new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(0,4),
-                    new LevelMonsterData(0,4),
-                    new LevelMonsterData(0,4),
-                    new LevelMonsterData(0,4),
-                    new LevelMonsterData(0,4),
-                    new LevelMonsterData(0,4),
-                },new List<LevelMonsterData>()
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(0, 4),
+                    new LevelMonsterData(0, 4),
+                    new LevelMonsterData(0, 4),
+                    new LevelMonsterData(0, 4),
+                    new LevelMonsterData(0, 4),
+                    new LevelMonsterData(0, 4),
+                },
+                new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(0,3),
-                    new LevelMonsterData(0,3),
-                    new LevelMonsterData(0,3),
-                    new LevelMonsterData(0,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(1,3),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                    new LevelMonsterData(2,4),
-                    
-                },new List<LevelMonsterData>()
+                    new LevelMonsterData(0, 3),
+                    new LevelMonsterData(0, 3),
+                    new LevelMonsterData(0, 3),
+                    new LevelMonsterData(0, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(1, 3),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                    new LevelMonsterData(2, 4),
+                },
+                new List<LevelMonsterData>()
                 {
-                    new LevelMonsterData(1,2),
+                    new LevelMonsterData(1, 2),
                 },
             }),
         };
@@ -107,7 +114,7 @@ namespace Script.Config
         {
             for (int i = 0; i < _levelDataList.Count; i++)
             {
-                if (_levelDataList[i].level==level)
+                if (_levelDataList[i].level == level)
                 {
                     return _levelDataList[i].Clone();
                 }

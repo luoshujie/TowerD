@@ -72,8 +72,6 @@ namespace Script.Role.Control.Hero
                 }
             }
             data.CurrentAttackInterval = data.AttackInterval;
-            Debug.LogWarning(distanceHeroList.Count);
-            Debug.Log("英雄：恢复");
             //播放动作
             //延时造成伤害
             anim.Play("Attack");

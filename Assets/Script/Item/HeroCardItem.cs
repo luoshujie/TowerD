@@ -24,11 +24,7 @@ namespace Script.Item
             FightMgr.instance.updateCoinChange += UpdateMask;
             UpdateMask();
         }
-
-        private void OnDestroy()
-        {
-            FightMgr.instance.updateCoinChange -= UpdateMask;
-        }
+        
 
         private bool state;
         private void UpdateMask()
