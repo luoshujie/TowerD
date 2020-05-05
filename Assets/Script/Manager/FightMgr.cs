@@ -184,7 +184,6 @@ namespace Script.Manager
 
         IEnumerator SpawnMonster()
         {
-            Debug.LogWarning(monsterSpawnIndex);
             Game.instance.DisplayNum(monsterSpawnIndex + 1, _levelData.monsterIdList.Count);
             List<LevelMonsterData> levelMonsterData = _levelData.monsterIdList[monsterSpawnIndex];
             for (int i = 0; i < levelMonsterData.Count; i++)
@@ -194,10 +193,14 @@ namespace Script.Manager
                 monsterControl.InitPath(monsterPathList[levelMonsterData[i].pathId].pathList);
                 monster.SetActive(true);
                 sceneMonsterList.Add(monsterControl);
+                if (i==levelMonsterData.Count-1)
+                {
+                    spawnState = false;
+                }
                 yield return waitForSeconds;
             }
 
-            spawnState = false;
+            
             monsterSpawnIndex++;
         }
 
