@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Script.Manager;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ namespace Script.Window
 
         public void Init(bool state)
         {
+            MainMgr.instance.audioSource.Stop();
             if (state)
             {
                 audioSource.Play();

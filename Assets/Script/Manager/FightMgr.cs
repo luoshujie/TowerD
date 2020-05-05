@@ -146,17 +146,22 @@ namespace Script.Manager
             return null;
         }
 
-        public void RedueCrystal(bool isBoss=false)
+        private bool gameEnd;
+
+        public void RedueCrystal(bool isBoss = false)
         {
             Game.instance.ShowRedPanel();
             crystalCnt--;
             if (isBoss)
             {
                 crystalCnt = 0;
+                gameEnd = true;
             }
+
             Game.instance.ShowCrystalCnt();
             if (crystalCnt <= 0)
             {
+                gameEnd = true;
                 //游戏结束
                 WindowMgr.instance.ShowWindow<GameEndWindow>().Init(false);
             }
@@ -213,12 +218,10 @@ namespace Script.Manager
                 if (monsterSpawnIndex < _levelData.monsterIdList.Count)
                 {
                     CoinChange(300);
-                    if (monsterSpawnIndex==_levelData.monsterIdList.Count-1)
+                    if (monsterSpawnIndex == _levelData.monsterIdList.Count - 1)
                     {
-                        WindowMgr.instance.ShowWindow<DialogWindow>().Init(5,7, () =>
-                        {
-                            Invoke(nameof(InstantiateMonster), 5);
-                        });
+                        WindowMgr.instance.ShowWindow<DialogWindow>()
+                            .Init(5, 7, () => { Invoke(nameof(InstantiateMonster), 5); });
                     }
                     else
                     {
@@ -230,7 +233,10 @@ namespace Script.Manager
                     //打完了
                     if (monsterSpawnIndex >= _levelData.monsterIdList.Count)
                     {
-                        WindowMgr.instance.ShowWindow<GameEndWindow>().Init(true);
+                        if (!gameEnd)
+                        {
+                            WindowMgr.instance.ShowWindow<GameEndWindow>().Init(true);
+                        }
                     }
                 }
             }
@@ -293,6 +299,7 @@ namespace Script.Manager
                     {
                         platformItemList[i].InstantiateHero(GetHeroPrefab(heroId));
                         CoinChange(-price);
+                        return;
                     }
                 }
             }

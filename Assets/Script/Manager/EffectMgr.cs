@@ -63,7 +63,7 @@ namespace Script.Manager
         public void BeeMonsterAttack(Transform tranf,bool rotate)
         {
             RemoveFx fx=GetEffectGo(3);
-            Vector3 scale=new Vector3(fx.transform.lossyScale.x,fx.transform.lossyScale.y,Mathf.Abs(fx.transform.lossyScale.z));
+            Vector3 scale=new Vector3(fx.transform.localScale.x,fx.transform.localScale.y,Mathf.Abs(fx.transform.localScale.z));
             
             if (!rotate)
             {

@@ -23,7 +23,7 @@ namespace Script.Role.Control.Hero
         public override void InitData()
         {
             data = new HeroData(5, "艾米丽", AttackTargetEnum.Monster, 40, 20,
-                20, 30, 3, 2, OccupationEnum.Gunmen, StanceEnum.Highland);
+                20, 30, 4, 2, OccupationEnum.Gunmen, StanceEnum.Highland);
             attackStance = StanceEnum.None;
         }
 

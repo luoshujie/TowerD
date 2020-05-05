@@ -10,7 +10,7 @@ namespace Script.Role.Control.MonsterControl
         private void Start()
         {
             isBoss = true;
-            data = new MonsterData(4, "白爪", 800, 1, 40, 100, 1, StanceEnum.Lowland, 1);
+            data = new MonsterData(4, "白爪", 1600, 1.5f, 80, 120, 1, StanceEnum.Lowland, 1);
         }
     }
 }
